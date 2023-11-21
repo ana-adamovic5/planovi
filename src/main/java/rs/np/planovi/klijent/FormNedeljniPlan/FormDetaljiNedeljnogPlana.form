@@ -274,7 +274,6 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="dd.MM.yyyy" subtype="-1" type="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="17.07.2023"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDatumAktivnostiActionPerformed"/>
@@ -291,7 +290,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Neke beleske."/>
                   </Properties>
                 </Component>
               </SubComponents>

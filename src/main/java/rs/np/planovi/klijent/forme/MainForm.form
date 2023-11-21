@@ -253,7 +253,7 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="dd.MM.yyyy" subtype="-1" type="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="17.07.2023"/>
+            <Property name="text" type="java.lang.String" value="27.11.2023"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDatumOdActionPerformed"/>
@@ -264,7 +264,7 @@
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="dd.MM.yyyy" subtype="-1" type="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="24.07.2023"/>
+            <Property name="text" type="java.lang.String" value="3.12.2023"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbCilj">
@@ -388,7 +388,7 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="dd.MM.yyyy" subtype="-1" type="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="17.07.2023"/>
+                <Property name="text" type="java.lang.String" value="27.11.2023"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDatumAktivnostiActionPerformed"/>

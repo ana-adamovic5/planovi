@@ -116,7 +116,6 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
         cmbAktivnost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         txtDatumAktivnosti.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd.MM.yyyy"))));
-        txtDatumAktivnosti.setText("17.07.2023");
         txtDatumAktivnosti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDatumAktivnostiActionPerformed(evt);
@@ -125,7 +124,6 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
 
         txtBeleske.setColumns(20);
         txtBeleske.setRows(5);
-        txtBeleske.setText("Neke beleske.");
         jScrollPane1.setViewportView(txtBeleske);
 
         btnDodaj.setText("Dodaj aktivnost");

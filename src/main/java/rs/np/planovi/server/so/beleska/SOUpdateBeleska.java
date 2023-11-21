@@ -23,16 +23,7 @@ public class SOUpdateBeleska extends AbstractSO {
             throw new Exception("Prosledjeni objekat nije instanca klase Beleska!");
         }
 
-        Beleska b = (Beleska) ado;
-
-        ArrayList<Beleska> beleske = (ArrayList<Beleska>) (ArrayList<?>) DBBroker.getInstance().select(ado);
-
-        for (Beleska beleska : beleske) {
-            if (beleska.getNaslov().equals(b.getNaslov())) {
-                throw new Exception("Vec postoji beleska sa tim naslovom!");
-            }
-            
-        }
+        
 
     }
 

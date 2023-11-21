@@ -115,7 +115,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel3.setText("Cilj:");
 
         txtDatumOd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd.MM.yyyy"))));
-        txtDatumOd.setText("17.07.2023");
+        txtDatumOd.setText("27.11.2023");
         txtDatumOd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDatumOdActionPerformed(evt);
@@ -123,7 +123,7 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         txtDatumDo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd.MM.yyyy"))));
-        txtDatumDo.setText("24.07.2023");
+        txtDatumDo.setText("3.12.2023");
 
         cmbCilj.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -138,7 +138,7 @@ public class MainForm extends javax.swing.JFrame {
         cmbAktivnost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         txtDatumAktivnosti.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd.MM.yyyy"))));
-        txtDatumAktivnosti.setText("17.07.2023");
+        txtDatumAktivnosti.setText("27.11.2023");
         txtDatumAktivnosti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDatumAktivnostiActionPerformed(evt);
