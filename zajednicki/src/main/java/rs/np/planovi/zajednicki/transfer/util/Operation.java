@@ -36,7 +36,7 @@ public interface Operation {
     public static final int ADD_BELESKA = 14;
     public static final int DELETE_BELESKA = 15;
     public static final int UPDATE_BELESKA = 16;
-    public static final int GET_ALL_BELESKA = 517;
+    public static final int GET_ALL_BELESKA = 17;
     
 
 }
