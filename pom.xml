@@ -4,7 +4,12 @@
     <groupId>rs.np.planovi</groupId>
     <artifactId>Planovi</artifactId>
     <version>1.1.0</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+    <modules>
+        <module>klijent</module>
+        <module>server</module>
+        <module>zajednicki</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
