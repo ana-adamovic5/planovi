@@ -16,13 +16,24 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
+ * Forma koja prikazuje detalje odabranog cilja.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class FormDetaljiCilja extends javax.swing.JDialog {
 
+    /**
+     * Proslednjeni cilj za detaljan prikaz.
+     */
     private Cilj c;
 
+    /**
+     * Konstruktor koji kreira formu za detaljan prikaz cilja.
+     *
+     * @param parent forma koja poziva formu za detaljan prikaz cilja
+     * @param modal true
+     * @param c cilj za detaljan prikaz
+     */
     public FormDetaljiCilja(JDialog parent, boolean modal, Cilj c) {
         super(parent, modal);
         initComponents();
@@ -152,11 +163,21 @@ public class FormDetaljiCilja extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se poziva klikom na dugme "Otkazi" koja vraca korisnika na
+     * formu za pretragu ciljeva.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Otkazi"
+     */
     private void btnOtkaziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOtkaziActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnOtkaziActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Obrisi cilj" i brise prikazan
+     * cilj.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Obrisi cilj"
+     */
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
 
         int result = JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da "
@@ -182,7 +203,12 @@ public class FormDetaljiCilja extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_btnObrisiActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Izmeni cilj" i menja prikazan
+     * cilj.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Izmeni cilj"
+     */
     private void btnIzmeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzmeniActionPerformed
 
         if (txtNaziv.getText().isEmpty() || txtOpis.getText().isEmpty()) {
@@ -192,7 +218,7 @@ public class FormDetaljiCilja extends javax.swing.JDialog {
 
         String naziv = txtNaziv.getText();
         String opis = txtOpis.getText();
-        KategorijaCilja kategorija=(KategorijaCilja) cmbKategorija.getSelectedItem();
+        KategorijaCilja kategorija = (KategorijaCilja) cmbKategorija.getSelectedItem();
 
         c.setNazivCilja(naziv);
         c.setOpisCilja(opis);
@@ -229,7 +255,11 @@ public class FormDetaljiCilja extends javax.swing.JDialog {
     private javax.swing.JTextField txtNaziv;
     private javax.swing.JTextArea txtOpis;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Metoda koja popunjava padajucu listu sa svim kategorijama ciljeva iz baze
+     * podataka. Poziva sistemsku operaciju za vracanje liste kategorija ciljeva
+     * iz baze podataka.
+     */
     private void popuniKategorije() {
         try {
             ArrayList<KategorijaCilja> kategorije = ClientController.getInstance().getAllKategorijaCilja();
@@ -239,7 +269,6 @@ public class FormDetaljiCilja extends javax.swing.JDialog {
             for (KategorijaCilja kategorija : kategorije) {
                 cmbKategorija.addItem(kategorija);
             }
-
 
         } catch (Exception ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);

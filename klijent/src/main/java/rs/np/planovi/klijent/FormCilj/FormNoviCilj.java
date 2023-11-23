@@ -15,11 +15,18 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * Forma za dodavanje novog cilja u bazu podataka.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class FormNoviCilj extends javax.swing.JDialog {
 
+    /**
+     * Konstruktor za kreiranje forme za dodavanje novog cilja.
+     *
+     * @param parent forma koja poziva formu za dodavanje novog cilja
+     * @param modal true
+     */
     public FormNoviCilj(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -128,11 +135,22 @@ public class FormNoviCilj extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se poziva klikom na dugme "Otkazi" koja vraca korisnika na
+     * glavnu klijentsku formu.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Otkazi"
+     */
     private void btnOtkaziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOtkaziActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnOtkaziActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Dodaj cilj" koja dodaje novi cilj
+     * u bazu podataka. Preuzima podatke iz grafickih komponenti forme, pravi
+     * novi objekat klase Cilj i poziva sistemsku operaciju za cuvanje ciljeva.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Dodaj cilj"
+     */
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
         try {
             if (txtNaziv.getText().isEmpty() || txtOpis.getText().isEmpty()) {
@@ -142,7 +160,7 @@ public class FormNoviCilj extends javax.swing.JDialog {
 
             String naziv = txtNaziv.getText();
             String opis = txtOpis.getText();
-            KategorijaCilja kategorija=(KategorijaCilja) cmbKategorija.getSelectedItem();
+            KategorijaCilja kategorija = (KategorijaCilja) cmbKategorija.getSelectedItem();
 
             Cilj cilj = new Cilj(null, naziv, opis, kategorija);
 
@@ -169,6 +187,11 @@ public class FormNoviCilj extends javax.swing.JDialog {
     private javax.swing.JTextArea txtOpis;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metoda koja popunjava padajucu listu sa svim kategorijama ciljeva iz baze
+     * podataka. Poziva sistemsku operaciju za vracanje liste kategorija ciljeva
+     * iz baze podataka.
+     */
     private void popuniKategorije() {
         try {
             ArrayList<KategorijaCilja> kategorije = ClientController.getInstance().getAllKategorijaCilja();
@@ -178,7 +201,6 @@ public class FormNoviCilj extends javax.swing.JDialog {
             for (KategorijaCilja kategorija : kategorije) {
                 cmbKategorija.addItem(kategorija);
             }
-
 
         } catch (Exception ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);

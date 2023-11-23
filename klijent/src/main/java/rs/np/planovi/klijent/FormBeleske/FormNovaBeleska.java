@@ -12,11 +12,18 @@ import javax.swing.JOptionPane;
 import rs.np.planovi.klijent.session.Session;
 
 /**
+ * Forma za dodavanje nove beleske u bazu podataka.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class FormNovaBeleska extends javax.swing.JDialog {
 
+    /**
+     * Konstruktor za kreiranje forme za dodavanje nove beleske.
+     *
+     * @param parent forma koja poziva formu za dodavanje nove beleske
+     * @param modal true
+     */
     public FormNovaBeleska(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -117,11 +124,23 @@ public class FormNovaBeleska extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se poziva klikom na dugme "Otkazi" koja vraca korisnika na
+     * glavnu klijentsku formu.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Otkazi"
+     */
     private void btnOtkaziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOtkaziActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnOtkaziActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Sacuvaj" koja dodaje novu belesku
+     * u bazu podataka. Preuzima podatke iz grafickih komponenti forme, pravi
+     * novi objekat klase Beleska i poziva sistemsku operaciju za cuvanje
+     * beleski.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Sacuvaj"
+     */
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
         try {
             if (txtNaslov.getText().isEmpty() || txtSadrzaj.getText().isEmpty()) {
@@ -131,9 +150,9 @@ public class FormNovaBeleska extends javax.swing.JDialog {
 
             String naslov = txtNaslov.getText();
             String sadrzaj = txtSadrzaj.getText();
-            Korisnik ulogovani=Session.getInstance().getUlogovani();
+            Korisnik ulogovani = Session.getInstance().getUlogovani();
 
-            Beleska beleska=new Beleska(null, naslov, sadrzaj,ulogovani );
+            Beleska beleska = new Beleska(null, naslov, sadrzaj, ulogovani);
 
             ClientController.getInstance().addBeleska(beleska);
             JOptionPane.showMessageDialog(this, "Uspesno sacuvano.");
@@ -158,5 +177,4 @@ public class FormNovaBeleska extends javax.swing.JDialog {
     private javax.swing.JTextArea txtSadrzaj;
     // End of variables declaration//GEN-END:variables
 
-    
 }

@@ -13,21 +13,30 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
+ * Forma koja prikazuje detalje odabrane beleske.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class FormDetaljiBeleski extends javax.swing.JDialog {
 
-    private Beleska b;
     /**
-     * Creates new form FormDetaljiBeleski
+     * Proslednjena beleska za detaljan prikaz.
+     */
+    private Beleska b;
+
+    /**
+     * Konstruktor koji kreira formu za detaljan prikaz beleske.
+     *
+     * @param parent forma koja poziva formu za detaljan prikaz beleske
+     * @param modal true
+     * @param b beleska za detaljan prikaz
      */
     public FormDetaljiBeleski(JDialog parent, boolean modal, Beleska b) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Detalji beleske");
-        this.b=b;
+        this.b = b;
         txtNaslov.setText(b.getNaslov());
         txtSadrzaj.setText(b.getSadrzaj());
     }
@@ -143,11 +152,21 @@ public class FormDetaljiBeleski extends javax.swing.JDialog {
     private void txtNaslovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNaslovActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNaslovActionPerformed
-
+    /**
+     * Metoda koja se poziva klikom na dugme "Otkazi" koja vraca korisnika na
+     * formu za pretragu beleski.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Otkazi"
+     */
     private void btnOtkaziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOtkaziActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnOtkaziActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Obrisi belesku" i brise prikazanu
+     * belesku.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Obrisi belesku"
+     */
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
         int result = JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da "
                 + "obrisete ovu belesku?", "Konfirmacija", JOptionPane.YES_NO_OPTION);
@@ -170,9 +189,14 @@ public class FormDetaljiBeleski extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Izmeni belesku" i menja prikazanu
+     * belesku.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Izmeni belesku"
+     */
     private void btnIzmeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzmeniActionPerformed
-        
+
         if (txtNaslov.getText().isEmpty() || txtSadrzaj.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Sva polja moraju biti popunjena!");
             return;
@@ -197,8 +221,6 @@ public class FormDetaljiBeleski extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnIzmeniActionPerformed
 
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIzmeni;

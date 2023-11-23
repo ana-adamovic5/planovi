@@ -8,13 +8,17 @@ import rs.np.planovi.zajednicki.domain.Beleska;
 import rs.np.planovi.klijent.models.TableModelBeleske;
 
 /**
- *
- * @author adamo
+ * Forma za pregled svih beleski iz baze podataka.
+ * 
+ * @author Ana Adamovic
  */
 public class FormPregledBeleski extends javax.swing.JDialog {
 
     /**
-     * Creates new form FormPregledBeleski
+     * Konstruktor za kreiranje forme za pregled beleski.
+     * 
+     * @param parent forma koja poziva formu za pregled beleski
+     * @param modal tru
      */
     public FormPregledBeleski(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -102,7 +106,12 @@ public class FormPregledBeleski extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Detalji beleske" i koja
+     * prikazuje izabranu belesku u novoj formi.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Detalji beleske"
+     */
     private void btnDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetaljiActionPerformed
 
         int row = tblBeleske.getSelectedRow();
@@ -163,7 +172,11 @@ public class FormPregledBeleski extends javax.swing.JDialog {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable tblBeleske;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Metoda koja osvezava prikaz tabele beleski.
+     * 
+     * @throws Exception izuzetak u slucaju da je lista beleski prazna
+     */
     void refreshTable() throws Exception {
         TableModelBeleske tm = (TableModelBeleske) tblBeleske.getModel();
         tm.refreshTable();

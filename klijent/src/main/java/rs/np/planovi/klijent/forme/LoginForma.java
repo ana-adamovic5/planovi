@@ -11,13 +11,14 @@ import javax.swing.JOptionPane;
 import rs.np.planovi.klijent.session.Session;
 
 /**
+ * Forma za prijavljivanje korisnika na sistem.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class LoginForma extends javax.swing.JFrame {
 
     /**
-     * Creates new form Login
+     * Konstruktor koji kreira formu za prijavljivanje korisnika.
      */
     public LoginForma() {
         initComponents();
@@ -108,7 +109,13 @@ public class LoginForma extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Login" i koja poziva sistemsku
+     * operaciju za prijavljivanje korisnika na sistem. Preuzima podatke iz
+     * grafickih komponenti formi i salje klijentskom kontroleru.
+     *
+     * @param evt dogadjaj klika na dugme
+     */
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try {
             Korisnik k = new Korisnik();
@@ -127,7 +134,12 @@ public class LoginForma extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnLoginActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Cancel" i zatvara formu za
+     * prijavljivanje korisnika.
+     *
+     * @param evt dogadjaj klika na dugme
+     */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed

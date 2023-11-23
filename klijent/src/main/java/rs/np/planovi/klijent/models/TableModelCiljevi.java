@@ -13,15 +13,32 @@ import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 
 /**
+ * Model tabele za prikaz ciljeva. Klasa nasledjuje apstraktnu klasu
+ * AbstractTableModel i implementira njene apstraktne metode.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class TableModelCiljevi extends AbstractTableModel implements Runnable {
 
+    /**
+     * Lista ciljeva.
+     */
     private ArrayList<Cilj> lista;
+
+    /**
+     * Nazivi kolona tabele kao niz Stringova.
+     */
     private String[] kolone = {"Naziv", "Opis", "Kategorija"};
+
+    /**
+     * Parametar za pretragu ciljeva kao String.
+     */
     private String parametar = "";
 
+    /**
+     * Konstruktor koji inicijalizuje model tabele ciljeva. Popunjava tabelu
+     * listom ciljeva iz baze podataka.
+     */
     public TableModelCiljevi() {
         try {
             lista = ClientController.getInstance().getAllCilj();
@@ -62,10 +79,19 @@ public class TableModelCiljevi extends AbstractTableModel implements Runnable {
         }
     }
 
+    /**
+     * Metoda koja vraca cilj izabranog reda u tabeli.
+     *
+     * @param row izabran red tabele
+     * @return cilj izabranog reda tabele
+     */
     public Cilj getSelectedCilj(int row) {
         return lista.get(row);
     }
 
+    /**
+     * Metoda koja pokrece nit i na svakih deset sekundi osvezava prikaz tabele.
+     */
     @Override
     public void run() {
         try {
@@ -78,11 +104,20 @@ public class TableModelCiljevi extends AbstractTableModel implements Runnable {
         }
     }
 
+    /**
+     * Metoda koja postavlja vrednost parametra za pretragu ciljeva u tabeli.
+     * Poziva metodu za osvezavanje tabele.
+     *
+     * @param parametar parametar za pretragu
+     */
     public void setParametar(String parametar) {
         this.parametar = parametar;
         refreshTable();
     }
 
+    /**
+     * Metoda koja osvezava prikaz tabele nakon izmena.
+     */
     public void refreshTable() {
         try {
             lista = ClientController.getInstance().getAllCilj();

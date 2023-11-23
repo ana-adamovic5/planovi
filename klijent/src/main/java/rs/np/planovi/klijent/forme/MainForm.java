@@ -26,15 +26,22 @@ import rs.np.planovi.klijent.models.TableModelDnevneAktivnosti;
 import rs.np.planovi.klijent.session.Session;
 
 /**
+ * Glavna klijentska forma. Predstavlja glavni korisnicki interfejs aplikacije i
+ * omogucava korisniku interakciju sa funkcionalnostima sistema. Korisnik moze
+ * da dodaje,menja, brise i pretrazuje ciljeve, nedeljne planove i beleske i
+ * kada zavrsi sa radom da se odjavi sa sistema.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class MainForm extends javax.swing.JFrame {
 
+    /**
+     * Korisnik koji se prijavljuje na sistem.
+     */
     Korisnik ulogovani;
 
     /**
-     * Creates new form MainForm
+     * Konstruktor koji kreira glavnu klijentsku formu.
      */
     public MainForm() {
         initComponents();
@@ -376,19 +383,37 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja otvara formu za dodavanje novog cilja.
+     *
+     * @param evt dogadjaj pokrenut klikom na stavku menija Cilj
+     */
     private void miNoviCiljActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNoviCiljActionPerformed
         new FormNoviCilj(this, true).setVisible(true);
     }//GEN-LAST:event_miNoviCiljActionPerformed
-
+    /**
+     * Metoda koja otvara formu za pretragu ciljeva.
+     *
+     * @param evt dogadjaj pokrenut klikom na stavku menija Cilj
+     */
     private void miPretragaCiljaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPretragaCiljaActionPerformed
         new FormPretragaCilja(this, true).setVisible(true);
     }//GEN-LAST:event_miPretragaCiljaActionPerformed
-
+    /**
+     * Metoda koja otvara formu za pretragu nedeljnih planova.
+     *
+     * @param evt dogadjaj pokrenut klikom na stavku menija Nedeljni plan
+     */
     private void miPretragaNedeljnogPlanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPretragaNedeljnogPlanaActionPerformed
         new FormPretragaNedeljnogPlana(this, true).setVisible(true);
     }//GEN-LAST:event_miPretragaNedeljnogPlanaActionPerformed
-
+    /**
+     * Metoda za odjavu korisnika sa sistema. Ukoliko korisnik odabere opciju da
+     * se odjavi, prikazuje mu se ponovo forma za prijavljivanje u suprotnom se
+     * vraca na prikaz glavne forme.
+     *
+     * @param evt dogadjaj pokrenut klikom na stavku menija Odjava
+     */
     private void miOdjavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miOdjavaActionPerformed
         int result = JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da "
                 + "se odjavite?", "Konfirmacija", JOptionPane.YES_NO_OPTION);
@@ -407,7 +432,14 @@ public class MainForm extends javax.swing.JFrame {
     private void txtDatumAktivnostiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatumAktivnostiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDatumAktivnostiActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Dodaj aktivnost" koja dodaje
+     * dnevnu aktivnost u tabelu. Preuzima podatke iz grafickih komponenti
+     * forme, pravi novi objekat klase DnevnaAktivnost i dodaje u model tabele
+     * dnevnih aktivnosti.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Dodaj aktivnost"
+     */
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
 
         try {
@@ -432,7 +464,12 @@ public class MainForm extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnDodajActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Obrisi aktivnost" koja brise
+     * odabranu dnevnu aktivnost iz tabele.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Obrisi aktivnost"
+     */
     private void btnObrisiAktivnostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiAktivnostActionPerformed
 
         int row = tblAktivnosti.getSelectedRow();
@@ -443,7 +480,14 @@ public class MainForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnObrisiAktivnostActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Sacuvaj nedeljni plan" koja
+     * dodaje novi nedeljni plan u bazu podataka. Preuzima podatke iz grafickih
+     * komponenti forme, pravi novi objekat klase NedeljniPlan i poziva
+     * sistemsku operaciju za cuvanje nedeljnih planova.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Sacuvaj nedeljni plan"
+     */
     private void btnSacuvajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacuvajActionPerformed
 
         try {
@@ -475,12 +519,20 @@ public class MainForm extends javax.swing.JFrame {
     private void txtDatumOdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatumOdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDatumOdActionPerformed
-
+    /**
+     * Metoda koja otvara formu za dodavanje nove beleske.
+     *
+     * @param evt dogadjaj pokrenut klikom na stavku menija Beleske
+     */
     private void miNovaBeleskaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNovaBeleskaActionPerformed
         new FormNovaBeleska(this, true).setVisible(true);
 
     }//GEN-LAST:event_miNovaBeleskaActionPerformed
-
+    /**
+     * Metoda koja otvara formu za pretragu beleski.
+     *
+     * @param evt dogadjaj pokrenut klikom na stavku menija Beleske
+     */
     private void miPregledBeleskiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPregledBeleskiActionPerformed
         new FormPregledBeleski(this, true).setVisible(true);
     }//GEN-LAST:event_miPregledBeleskiActionPerformed
@@ -523,6 +575,10 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtDatumOd;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metoda koja popunjava padajucu listu sa svim ciljevima iz baze podataka.
+     * Poziva sistemsku operaciju za vracanje liste ciljeva iz baze podataka.
+     */
     public void popuniCiljeve() {
         try {
             ArrayList<Cilj> ciljevi = ClientController.getInstance().getAllCilj();
@@ -538,6 +594,11 @@ public class MainForm extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metoda koja popunjava padajucu listu sa svim aktivnostima iz baze
+     * podataka. Poziva sistemsku operaciju za vracanje liste aktivnosti iz baze
+     * podataka.
+     */
     private void popuniAktivnosti() {
         try {
             ArrayList<Aktivnost> aktivnosti = ClientController.getInstance().getAllAktivnost();
@@ -553,6 +614,9 @@ public class MainForm extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metoda koja resetuje graficke komponente glavne klijentske forme.
+     */
     private void resetujFormu() {
         txtDatumOd.setText("");
         txtDatumDo.setText("");

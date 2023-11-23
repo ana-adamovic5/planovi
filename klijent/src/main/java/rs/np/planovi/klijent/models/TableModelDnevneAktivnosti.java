@@ -15,19 +15,40 @@ import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 
 /**
+ * Model tabele za prikaz dnevnih aktivnosti. Klasa nasledjuje apstraktnu klasu
+ * AbstractTableModel i implementira njene apstraktne metode.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class TableModelDnevneAktivnosti extends AbstractTableModel {
 
+    /**
+     * Lista dnevnih aktivnosti.
+     */
     private ArrayList<DnevnaAktivnost> lista;
+    
+    /**
+     * Nazivi kolona tabele kao niz Stringova.
+     */
     private String[] kolone = {"Rb", "Aktivnost", "Datum aktivnosti", "Beleske"};
+    
+    /**
+     * Redni broj dnevne aktivnosti kao ceo broj.
+     */
     private int rb = 0;
 
+    /**
+     * Konstruktor koji inicijalizuje tabelu dnevnih aktivnosti i praznu listu.
+     */
     public TableModelDnevneAktivnosti() {
         lista = new ArrayList<>();
     }
 
+    /**
+     * Konstruktor koji incijalizuje tabelu dnevnih aktivnosti prosledjenog nedeljnog plana.
+     * 
+     * @param np nedeljni plan na koji se odnose dnevne aktivnosti
+     */
     public TableModelDnevneAktivnosti(NedeljniPlan np) {
         try {
             lista = ClientController.getInstance().getAllDnevnaAktivnost(np);
@@ -71,6 +92,11 @@ public class TableModelDnevneAktivnosti extends AbstractTableModel {
         }
     }
 
+    /**
+     * Metoda koja dodaje dnevnu aktivnosti u tabelu i osvezava prikaz tabele.
+     * 
+     * @param da dnevna aktivnost koja se dodaje u tabelu
+     */
     public void dodajAktivnost(DnevnaAktivnost da) {
         rb = lista.size();
         da.setRb(++rb);
@@ -78,6 +104,11 @@ public class TableModelDnevneAktivnosti extends AbstractTableModel {
         fireTableDataChanged();
     }
 
+    /**
+     * Metoda koja brise izabranu dnevnu aktivnost iz tabele i osvezava prikaz.
+     * 
+     * @param row izabrani red za brisanje iz tabele
+     */
     public void obrisiAktivnost(int row) {
         lista.remove(row);
 
@@ -89,6 +120,11 @@ public class TableModelDnevneAktivnosti extends AbstractTableModel {
         fireTableDataChanged();
     }
 
+    /**
+     * Vraca listu dnevnih aktivnosti.
+     * 
+     * @return lista dnevnih aktivnosti
+     */
     public ArrayList<DnevnaAktivnost> getLista() {
         return lista;
     }

@@ -10,11 +10,18 @@ import rs.np.planovi.klijent.forme.MainForm;
 import rs.np.planovi.klijent.models.TableModelCiljevi;
 
 /**
- *
- * @author adamo
+ * Forma za pretragu ciljeva.
+ * 
+ * @author An Adamovic
  */
 public class FormPretragaCilja extends javax.swing.JDialog {
-
+    
+    /**
+     * Konstruktor koji kreira formu za pretragu ciljeva.
+     * 
+     * @param parent forma koja poziva formu za pretragu ciljeva
+     * @param modal true
+     */
     public FormPretragaCilja(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -111,12 +118,22 @@ public class FormPretragaCilja extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se pokrece kada prestane kucanje tastaturom, preuzima unet
+     * tekst za pretragu i osvezava tabelu ciljeva na osnovu pretrage.
+     *
+     * @param evt dogadjaj koji nastane kad prestane kucanje tastaturom
+     */
     private void txtPretragaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPretragaKeyReleased
         String param = txtPretraga.getText();
         ((TableModelCiljevi) tblCiljevi.getModel()).setParametar(param);
     }//GEN-LAST:event_txtPretragaKeyReleased
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Detalji cilja" i koja
+     * prikazuje izabrani cilj u novoj formi.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Detalji cilja"
+     */
     private void btnDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetaljiActionPerformed
 
         int row = tblCiljevi.getSelectedRow();
@@ -135,12 +152,17 @@ public class FormPretragaCilja extends javax.swing.JDialog {
     private javax.swing.JTable tblCiljevi;
     private javax.swing.JTextField txtPretraga;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Metoda koja osvezava prikaz tabele ciljeva.
+     */
     void refreshTable() {
         TableModelCiljevi tm = (TableModelCiljevi) tblCiljevi.getModel();
         tm.refreshTable();
     }
-
+    
+    /**
+     * Metoda koja osvezava prikaz padajuce liste ciljeva na glavnoj klijentskoj formi nakon izmena.
+     */
     void popuniCiljeve() {
         MainForm mf = (MainForm) getParent();
         mf.popuniCiljeve();

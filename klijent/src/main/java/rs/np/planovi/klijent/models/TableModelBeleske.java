@@ -13,15 +13,27 @@ import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 
 /**
+ * Model tabele za prikaz beleski. Klasa nasledjuje apstraktnu klasu
+ * AbstractTableModel i implementira njene apstraktne metode.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class TableModelBeleske extends AbstractTableModel {
 
+    /**
+     * Lista beleski.
+     */
     private ArrayList<Beleska> lista;
+    
+    /**
+     * Nazivi kolona tabele kao niz Stringova.
+     */
     private String[] kolone = {"Naslov", "Sadrzaj"};
-    private String parametar = "";
-
+    
+    /**
+     * Konstruktor koji inicijalizuje model tabele beleski.
+     * Popunjava tabelu listom beleski iz baze podataka.
+     */
     public TableModelBeleske() {
         try {
             lista = ClientController.getInstance().getAllBeleska();
@@ -60,30 +72,23 @@ public class TableModelBeleske extends AbstractTableModel {
         }
     }
 
+    /**
+     * Metoda koja vraca belesku izabranog reda u tabeli.
+     * @param row izabran red tabele
+     * @return beleska izabranog reda tabele
+     */
     public Beleska getSelectedBeleska(int row) {
         return lista.get(row);
     }
 
-//    @Override
-//    public void run() {
-//        try {
-//            while (!Thread.currentThread().isInterrupted()) {
-//                Thread.sleep(10000);
-//                refreshTable();
-//            }
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(TableModelBeleske.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-
-//    public void setParametar(String parametar) {
-//        this.parametar = parametar;
-//        refreshTable();
-//    }
-
+    /**
+     * Metoda koja osvezava prikaz tabele nakon izmena.
+     * 
+     * @throws Exception izuzetak u slucaju da je lista prazna
+     */
     public void refreshTable() throws Exception {
         lista = ClientController.getInstance().getAllBeleska();
-            
+
     }
 
 }

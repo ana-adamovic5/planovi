@@ -9,11 +9,18 @@ import rs.np.planovi.zajednicki.domain.NedeljniPlan;
 import rs.np.planovi.klijent.models.TableModelNedeljniPlanovi;
 
 /**
+ * Forma za pretragu nedeljnih planova na osnovu unetog naziva cilja.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class FormPretragaNedeljnogPlana extends javax.swing.JDialog {
 
+    /**
+     * Konstruktor koji kreira formu za pretragu nedeljnog plana.
+     *
+     * @param parent forma koja poziva formu za pretragu nedeljnog plana
+     * @param modal true
+     */
     public FormPretragaNedeljnogPlana(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -21,7 +28,7 @@ public class FormPretragaNedeljnogPlana extends javax.swing.JDialog {
         TableModelNedeljniPlanovi model = new TableModelNedeljniPlanovi();
         Thread th = new Thread(model);
         th.start();
-        tblCiljevi.setModel(model);
+        tblPlanovi.setModel(model);
         setTitle("Pretraga nedeljnog plana");
     }
 
@@ -36,7 +43,7 @@ public class FormPretragaNedeljnogPlana extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCiljevi = new javax.swing.JTable();
+        tblPlanovi = new javax.swing.JTable();
         txtPretraga = new javax.swing.JTextField();
         btnDetalji = new javax.swing.JButton();
 
@@ -44,7 +51,7 @@ public class FormPretragaNedeljnogPlana extends javax.swing.JDialog {
 
         jLabel1.setText("Pretraga (naziv cilja):");
 
-        tblCiljevi.setModel(new javax.swing.table.DefaultTableModel(
+        tblPlanovi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -55,7 +62,7 @@ public class FormPretragaNedeljnogPlana extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblCiljevi);
+        jScrollPane1.setViewportView(tblPlanovi);
 
         txtPretraga.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -110,33 +117,46 @@ public class FormPretragaNedeljnogPlana extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se pokrece kada prestane kucanje tastaturom, preuzima unet
+     * tekst za pretragu i osvezava tabelu nedeljnih planova na osnovu pretrage.
+     *
+     * @param evt dogadjaj koji nastane kad prestane kucanje tastaturom
+     */
     private void txtPretragaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPretragaKeyReleased
         String param = txtPretraga.getText();
-        ((TableModelNedeljniPlanovi) tblCiljevi.getModel()).setParametar(param);
+        ((TableModelNedeljniPlanovi) tblPlanovi.getModel()).setParametar(param);
     }//GEN-LAST:event_txtPretragaKeyReleased
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Detalji nedeljnog plana" i koja
+     * prikazuje izabrani nedeljni plan u novoj formi.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Detalji nedeljnog plana"
+     */
     private void btnDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetaljiActionPerformed
-        
-        int row = tblCiljevi.getSelectedRow();
-        
+
+        int row = tblPlanovi.getSelectedRow();
+
         if (row >= 0) {
-            NedeljniPlan np = ((TableModelNedeljniPlanovi) tblCiljevi.getModel()).getSelectedNedeljniPlan(row);
+            NedeljniPlan np = ((TableModelNedeljniPlanovi) tblPlanovi.getModel()).getSelectedNedeljniPlan(row);
             new FormDetaljiNedeljnogPlana(this, rootPaneCheckingEnabled, np).setVisible(true);
         }
-        
+
     }//GEN-LAST:event_btnDetaljiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetalji;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblCiljevi;
+    private javax.swing.JTable tblPlanovi;
     private javax.swing.JTextField txtPretraga;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metoda koja osvezava prikaz tabele nedeljnih planova.
+     */
     void refreshTable() {
-        TableModelNedeljniPlanovi tm = (TableModelNedeljniPlanovi) tblCiljevi.getModel();
+        TableModelNedeljniPlanovi tm = (TableModelNedeljniPlanovi) tblPlanovi.getModel();
         tm.refreshTable();
     }
 

@@ -21,13 +21,24 @@ import javax.swing.JOptionPane;
 import rs.np.planovi.klijent.models.TableModelDnevneAktivnosti;
 
 /**
+ * Forma koja prikazuje detalje odabranog nedeljnog plana.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
 
+    /**
+     * Proslednjeni nedeljni plan za detaljan prikaz.
+     */
     private NedeljniPlan np;
 
+    /**
+     * Konstruktor koji kreira formu za detaljan prikaz nedeljnog plana.
+     *
+     * @param parent forma koja poziva formu za detaljan prikaz nedeljnog plana
+     * @param modal true
+     * @param np nedeljni plan za detaljan prikaz
+     */
     public FormDetaljiNedeljnogPlana(JDialog parent, boolean modal, NedeljniPlan np) {
         super(parent, modal);
         initComponents();
@@ -306,11 +317,21 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se poziva klikom na dugme "Otkazi" koja vraca korisnika na
+     * formu za pretragu nedeljnih planova.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Otkazi"
+     */
     private void btnOtkaziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOtkaziActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnOtkaziActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Obrisi nedeljni plan" i brise
+     * prikazan nedeljni plan.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Obrisi nedeljni plan"
+     */
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
 
         int result = JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da "
@@ -333,7 +354,12 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_btnObrisiActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Izmeni nedeljni plan" i menja
+     * prikazan nedeljni plan.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Izmeni nedeljni plan"
+     */
     private void btnIzmeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzmeniActionPerformed
 
         if (txtDatumOd.getText().isEmpty() || txtDatumDo.getText().isEmpty()) {
@@ -370,7 +396,14 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
     private void txtDatumAktivnostiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatumAktivnostiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDatumAktivnostiActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Dodaj aktivnost" koja dodaje
+     * dnevnu aktivnost u tabelu. Preuzima podatke iz grafickih komponenti
+     * forme, pravi novi objekat klase DnevnaAktivnost i dodaje u model tabele
+     * dnevnih aktivnosti.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Dodaj aktivnost"
+     */
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
 
         try {
@@ -394,7 +427,12 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_btnDodajActionPerformed
-
+    /**
+     * Metoda koja se pokrece klikom na dugme "Obrisi aktivnost" koja brise
+     * odabranu dnevnu aktivnost iz tabele.
+     *
+     * @param evt dogadjaj pokrenut klikom na dugme "Obrisi aktivnost"
+     */
     private void btnObrisiAktivnostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiAktivnostActionPerformed
 
         int row = tblAktivnosti.getSelectedRow();
@@ -431,6 +469,10 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField txtDatumOd;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metoda koja popunjava padajucu listu sa svim ciljevima iz baze podataka.
+     * Poziva sistemsku operaciju za vracanje liste ciljeva iz baze podataka.
+     */
     private void popuniCiljeve() {
         try {
             ArrayList<Cilj> ciljevi = ClientController.getInstance().getAllCilj();
@@ -441,12 +483,16 @@ public class FormDetaljiNedeljnogPlana extends javax.swing.JDialog {
                 cmbCilj.addItem(cilj);
             }
 
-
         } catch (Exception ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    /**
+     * Metoda koja popunjava padajucu listu sa svim aktivnostima iz baze
+     * podataka. Poziva sistemsku operaciju za vracanje liste aktivnosti iz baze
+     * podataka.
+     */
     private void popuniAktivnosti() {
         try {
             ArrayList<Aktivnost> aktivnosti = ClientController.getInstance().getAllAktivnost();

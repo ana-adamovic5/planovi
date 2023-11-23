@@ -14,15 +14,32 @@ import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 
 /**
+ * Model tabele za prikaz nedeljnih planova. Klasa nasledjuje apstraktnu klasu
+ * AbstractTableModel i implementira njene apstraktne metode.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class TableModelNedeljniPlanovi extends AbstractTableModel implements Runnable {
 
+    /**
+     * Lista nedeljnih planova.
+     */
     private ArrayList<NedeljniPlan> lista;
+
+    /**
+     * Nazivi kolona tabele kao niz Stringova.
+     */
     private String[] kolone = {"Korisnik", "Datum od", "Datum do", "Cilj"};
+
+    /**
+     * Parametar za pretragu nedeljnih planova u tableli.
+     */
     private String parametar = "";
 
+    /**
+     * Konstruktor koji inicijalizuje model tabele nedeljnih planova. Popunjava
+     * tabelu listom nedeljnih planova iz baze podataka.
+     */
     public TableModelNedeljniPlanovi() {
         try {
             lista = ClientController.getInstance().getAllNedeljniPlan();
@@ -66,10 +83,19 @@ public class TableModelNedeljniPlanovi extends AbstractTableModel implements Run
         }
     }
 
+    /**
+     * Metoda koja vraca nedeljni plan izabranog reda u tabeli.
+     *
+     * @param row izabran red tabele
+     * @return nedeljni plan izabranog reda tabele
+     */
     public NedeljniPlan getSelectedNedeljniPlan(int row) {
         return lista.get(row);
     }
 
+    /**
+     * Metoda koja pokrece nit i na svakih deset sekundi osvezava prikaz tabele.
+     */
     @Override
     public void run() {
         try {
@@ -82,11 +108,20 @@ public class TableModelNedeljniPlanovi extends AbstractTableModel implements Run
         }
     }
 
+    /**
+     * Metoda koja postavlja vrednost parametra za pretragu nedeljnih planova u
+     * tabeli. Poziva metodu za osvezavanje tabele.
+     *
+     * @param parametar parametar za pretragu
+     */
     public void setParametar(String parametar) {
         this.parametar = parametar;
         refreshTable();
     }
 
+    /**
+     * Metoda koja osvezava prikaz tabele nakon izmena.
+     */
     public void refreshTable() {
         try {
             lista = ClientController.getInstance().getAllNedeljniPlan();
