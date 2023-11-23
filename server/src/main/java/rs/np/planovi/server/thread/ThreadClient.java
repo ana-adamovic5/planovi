@@ -19,17 +19,45 @@ import rs.np.planovi.zajednicki.transfer.util.ResponseStatus;
 import rs.np.planovi.zajednicki.transfer.util.Operation;
 
 /**
+ * Klasa predstavlja klijentsku nit koja obradjuje zahteve klijenta.
+ *
+ * ThreadClient je klasa koja nasledjuje Thread i predstavlja nit koja se
+ * pokrece za svakog klijenta koji se poveze sa serverom. Svaka instanca ove
+ * klase ima svoj socket preko kojeg komunicira sa serverom.
+ *
+ * Nit u while petlji ceka na pristizanje zahteva od klijenta, obradjuje ih
+ * koristeci odgovarajuce metode iz serverskog kontrolera i salje odgovor
+ * klijentu.
+ *
+ * @see ServerController
+ * @see Socket
+ * @see Request
+ * @see Response
+ * @see Thread
  *
  * @author adamo
  */
 public class ThreadClient extends Thread {
 
+    /**
+     * Socket koji se koristi za komunikaciju sa klijentom.
+     */
     private Socket socket;
 
+    /**
+     * Parametarski konstruktor koji postavlja vrednost soketa za komunikaciju
+     * sa klijentom.
+     *
+     * @param socket soket za komunikaciju sa klijentom
+     */
     ThreadClient(Socket socket) {
         this.socket = socket;
     }
 
+    /**
+     * Metoda prima zahtev od klijenta preko ObjectInputStream-a, cita ga i
+     * obradjuje, zatim vraca odgovor od servera putem ObjectOutputStream-a.
+     */
     @Override
     public void run() {
         try {
@@ -45,6 +73,15 @@ public class ThreadClient extends Thread {
         }
     }
 
+    /**
+     * Metoda koja obradjuje klijentske zahteve prilikom pokretanja niti.
+     *
+     * Metoda ceka na pristizanje zahteva od klijenta, obraduje ih koristeci
+     * odgovarajuce metode iz serverskog kontrolera i vraca serverski odgovor.
+     *
+     * @param req klikentski zahtev
+     * @return serverski odgovor
+     */
     private Response handleRequest(Request request) {
         Response response = new Response(null, null, ResponseStatus.Success);
         try {

@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja dodaje novu belesku u bazu podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOAddBeleska extends AbstractSO {
 
@@ -31,7 +34,7 @@ public class SOAddBeleska extends AbstractSO {
             if (beleska.getNaslov().equals(b.getNaslov())) {
                 throw new Exception("Vec postoji beleska sa tim naslovom!");
             }
-            
+
         }
 
     }

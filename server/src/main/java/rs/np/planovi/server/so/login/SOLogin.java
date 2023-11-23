@@ -12,11 +12,17 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija za prijavljivanje korisnika na sistem.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOLogin extends AbstractSO {
-    
+
+    /**
+     * Korisnik koji se prijavljuje na sistem.
+     */
     Korisnik ulogovani;
 
     @Override
@@ -43,13 +49,16 @@ public class SOLogin extends AbstractSO {
         }
 
         throw new Exception("Ne postoji korisnik sa tim kredencijalima.");
-        
+
     }
 
+    /**
+     * Vraca prijavljenog korisnika.
+     *
+     * @return prijavljeni korisnik
+     */
     public Korisnik getUlogovani() {
         return ulogovani;
     }
-    
-    
 
 }

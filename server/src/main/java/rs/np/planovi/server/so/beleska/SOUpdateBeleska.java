@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja menja belesku u bazi podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOUpdateBeleska extends AbstractSO {
 

@@ -12,11 +12,17 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja vraca listu svih beleski iz baze podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOGetAllBeleska extends AbstractSO {
 
+    /**
+     * Lista beleski.
+     */
     private ArrayList<Beleska> lista;
 
     @Override
@@ -32,6 +38,11 @@ public class SOGetAllBeleska extends AbstractSO {
         lista = (ArrayList<Beleska>) (ArrayList<?>) beleske;
     }
 
+    /**
+     * Vraca listu beleski.
+     *
+     * @return lista beleski
+     */
     public ArrayList<Beleska> getLista() {
         return lista;
     }

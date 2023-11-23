@@ -12,11 +12,17 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja vraca listu svih nedeljnih planova iz baze podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOGetAllNedeljniPlan extends AbstractSO {
 
+    /**
+     * Lista nedeljnih planova.
+     */
     private ArrayList<NedeljniPlan> lista;
 
     @Override
@@ -32,6 +38,11 @@ public class SOGetAllNedeljniPlan extends AbstractSO {
         lista = (ArrayList<NedeljniPlan>) (ArrayList<?>) nedeljniPlanovi;
     }
 
+    /**
+     * Vraca listu nedeljnih planova.
+     *
+     * @return lista nedeljnih planova
+     */
     public ArrayList<NedeljniPlan> getLista() {
         return lista;
     }

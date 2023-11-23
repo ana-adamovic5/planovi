@@ -12,11 +12,17 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja vraca listu svih tipova aktivnosti iz baze podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOGetAllTipAktivnosti extends AbstractSO {
 
+    /**
+     * Lista tipova aktivnosti.
+     */
     private ArrayList<TipAktivnosti> lista;
 
     @Override
@@ -32,6 +38,11 @@ public class SOGetAllTipAktivnosti extends AbstractSO {
         lista = (ArrayList<TipAktivnosti>) (ArrayList<?>) tipoviAktivnosti;
     }
 
+    /**
+     * Vraca listu tipova aktivnosti.
+     *
+     * @return lista tipova aktivnosti
+     */
     public ArrayList<TipAktivnosti> getLista() {
         return lista;
     }

@@ -12,11 +12,17 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja vraca listu svih ciljeva iz baze podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOGetAllCilj extends AbstractSO {
 
+    /**
+     * Lista ciljeva.
+     */
     private ArrayList<Cilj> lista;
 
     @Override
@@ -32,6 +38,11 @@ public class SOGetAllCilj extends AbstractSO {
         lista = (ArrayList<Cilj>) (ArrayList<?>) ciljevi;
     }
 
+    /**
+     * Vraca listu ciljeva.
+     *
+     * @return lista ciljeva
+     */
     public ArrayList<Cilj> getLista() {
         return lista;
     }

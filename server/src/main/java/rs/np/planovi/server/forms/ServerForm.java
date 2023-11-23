@@ -12,16 +12,21 @@ import javax.swing.JOptionPane;
 import rs.np.planovi.server.thread.ThreadServer;
 
 /**
+ * Klasa koja predstavlja serversku formu za pokretanje i gasenje serverske
+ * niti.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class ServerForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form ServerForm
+     * Serverska nit kao instanca klase ThreadServer.
      */
     private ThreadServer threadServer;
 
+    /**
+     * Konstruktor serverske forme.
+     */
     public ServerForm() {
         initComponents();
         setLocationRelativeTo(null);
@@ -44,8 +49,6 @@ public class ServerForm extends javax.swing.JFrame {
         btnPokreniServer = new javax.swing.JButton();
         btnUgasiServer = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        miKonfiguracija = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,19 +67,6 @@ public class ServerForm extends javax.swing.JFrame {
                 btnUgasiServerActionPerformed(evt);
             }
         });
-
-        jMenu1.setText("Konfiguracija baze");
-
-        miKonfiguracija.setText("Izmeni konfiguraciju");
-        miKonfiguracija.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miKonfiguracijaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(miKonfiguracija);
-
-        jMenuBar1.add(jMenu1);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,7 +100,13 @@ public class ServerForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Metoda koja se poziva klikom na dugme "Pokreni server". Ako je server vec
+     * pokrenut, prikazuje se odgovarajuca poruka. Inace, kreira se nova
+     * instanca serverske niti i pokrece se.
+     *
+     * @param evt dogadjaj klika na dugme
+     */
     private void btnPokreniServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPokreniServerActionPerformed
         if (threadServer == null || !threadServer.isAlive()) {
             threadServer = new ThreadServer();
@@ -120,11 +116,13 @@ public class ServerForm extends javax.swing.JFrame {
             btnPokreniServer.setEnabled(false);
         }
     }//GEN-LAST:event_btnPokreniServerActionPerformed
-
-    private void miKonfiguracijaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miKonfiguracijaActionPerformed
-        new KonfiguracijaBaze(this, true).setVisible(true);
-    }//GEN-LAST:event_miKonfiguracijaActionPerformed
-
+    /**
+     * Metoda koja se poziva klikom na dugme "Ugasi server". Ako je server
+     * pokrenut, zaustavlja se i gasi program, u suprotnom se prikazuje poruka
+     * da je server ugasen.
+     *
+     * @param evt dogadjaj klika na dugme
+     */
     private void btnUgasiServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUgasiServerActionPerformed
 
         if (threadServer.getServerSocket() != null && threadServer.getServerSocket().isBound()) {
@@ -178,9 +176,7 @@ public class ServerForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPokreniServer;
     private javax.swing.JButton btnUgasiServer;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblServerStatus;
-    private javax.swing.JMenuItem miKonfiguracija;
     // End of variables declaration//GEN-END:variables
 }

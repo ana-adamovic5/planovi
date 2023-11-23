@@ -11,8 +11,11 @@ import rs.np.planovi.zajednicki.domain.NedeljniPlan;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja brise nedeljni plan iz baze podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SODeleteNedeljniPlan extends AbstractSO {
 

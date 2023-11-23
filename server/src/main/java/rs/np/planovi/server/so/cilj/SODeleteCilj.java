@@ -11,8 +11,11 @@ import rs.np.planovi.zajednicki.domain.Cilj;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja brise cilj iz baze podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SODeleteCilj extends AbstractSO {
 

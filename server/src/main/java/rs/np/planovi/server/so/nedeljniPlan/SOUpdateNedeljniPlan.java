@@ -13,8 +13,11 @@ import java.util.Date;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja menja nedeljni plan u bazi podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOUpdateNedeljniPlan extends AbstractSO {
 

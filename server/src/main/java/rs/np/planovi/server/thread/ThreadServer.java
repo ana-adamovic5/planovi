@@ -9,13 +9,22 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- *
- * @author adamo
+ * Klasa koja predstavlja serversku nit i omogucava pokretanje servera i prihvatanje klijentskih konekcija.
+ * 
+ * Nasledjuje klasu Thread i implementira run() metodu.
+ * 
+ * @author Ana Adamovic
  */
 public class ThreadServer extends Thread {
 
+    /**
+     * Instanca serverskog soketa za prihvatanje konekcije sa klijentom.
+     */
     private ServerSocket serverSocket;
 
+    /**
+     * Konstruktor koji vrsi podizanje serverskog soketa i zauzimanje porta.
+     */
     public ThreadServer() {
         try {
             serverSocket = new ServerSocket(11111);
@@ -24,6 +33,10 @@ public class ThreadServer extends Thread {
         }
     }
 
+    /**
+     * Metoda run() klase Thread koja se izvrsava prilikom pokretanja niti.
+     * Vrsi pokretanje servera i prihvatanje klijentskih konekcija.
+     */
     @Override
     public void run() {
         try {
@@ -38,10 +51,20 @@ public class ThreadServer extends Thread {
         }
     }
 
+    /**
+     * Vraca serverski soket.
+     * 
+     * @return serverski soket
+     */
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
 
+    /**
+     * Postavlja vrednost serverskog soketa.
+     * 
+     * @param serverSocket serverski soket
+     */
     public void setServerSocket(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }

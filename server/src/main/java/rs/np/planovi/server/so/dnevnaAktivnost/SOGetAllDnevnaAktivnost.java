@@ -12,11 +12,17 @@ import java.util.ArrayList;
 import rs.np.planovi.server.so.AbstractSO;
 
 /**
+ * Sistemska operacija koja vraca listu svih dnevnih aktivnosti iz baze podataka.
  *
- * @author adamo
+ * Nasledjuje klasu AbstractSO i implementira njene apstraktne metode.
+ *
+ * @author Ana Adamovic
  */
 public class SOGetAllDnevnaAktivnost extends AbstractSO {
 
+    /**
+     * Lista dnevnih aktivnosti.
+     */
     private ArrayList<DnevnaAktivnost> lista;
 
     @Override
@@ -32,6 +38,11 @@ public class SOGetAllDnevnaAktivnost extends AbstractSO {
         lista = (ArrayList<DnevnaAktivnost>) (ArrayList<?>) dnevneAktivnosti;
     }
 
+    /**
+     * Vraca listu dnevnih aktivnosti.
+     *
+     * @return lista dnevnih aktivnosti
+     */
     public ArrayList<DnevnaAktivnost> getLista() {
         return lista;
     }
