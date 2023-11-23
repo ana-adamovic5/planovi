@@ -11,17 +11,50 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
+ * Predstavlja dnevnu aktivnost koju korisnik definise za sastavljanje svojih planova.
+ * Dnevna aktivnost ima definisan nedeljni plan kome pripada, redni broj, datum, beleske i aktivnost.
+ * 
+ * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class DnevnaAktivnost extends AbstractDomainObject {
 
+    /**
+     * Nedeljni plan kao primarni i spoljni kljuc povezan sa klasom NedeljniPlan.
+     */
     private NedeljniPlan nedeljniPlan;
+    
+    /**
+     * Redni broj dnevne aktivnosti kao ceo broj.
+     */
     private int rb;
+    
+    /**
+     * Datum aktivnosti kao objekat klase Date.
+     */
     private Date datumAktivnosti;
+    
+    /**
+     * Beleske dnevne aktivnosti kao String.
+     */
     private String beleske;
+    
+    /**
+     * Aktivnosti kao spoljni kljuc povezan sa klasom Aktivnost.
+     */
     private Aktivnost aktivnost;
 
+     /**
+     * Parametarski konstruktor koji postavlja vrednosti za nedeljni plan, redni broj, datum aktivnosti,
+     * beleske i aktivnost.
+     * 
+     * @param nedeljniPlan nova vrednost za nedeljni plan dnevne aktivnosti
+     * @param rb nova vrednost za redni broj dnevne aktivnosti
+     * @param datumAktivnosti nova vrednost za datum dnevne aktivnosti
+     * @param beleske nova vrednost za beleske dnevne aktivnosti
+     * @param aktivnost nova vrednost za dnevnu aktivnost
+     */
     public DnevnaAktivnost(NedeljniPlan nedeljniPlan, int rb, Date datumAktivnosti, String beleske, Aktivnost aktivnost) {
         this.nedeljniPlan = nedeljniPlan;
         this.rb = rb;
@@ -30,6 +63,9 @@ public class DnevnaAktivnost extends AbstractDomainObject {
         this.aktivnost = aktivnost;
     }
 
+    /**
+     * Bezparametarski konstruktor
+     */
     public DnevnaAktivnost() {
     }
 
@@ -61,8 +97,8 @@ public class DnevnaAktivnost extends AbstractDomainObject {
             Korisnik k = new Korisnik(rs.getLong("KorisnikID"),
                     rs.getString("Ime"), rs.getString("Prezime"),
                     rs.getString("Username"), rs.getString("Password"));
-            KategorijaCilja kc=new KategorijaCilja(rs.getLong("KategorijaID"), rs.getString("NazivKategorije"));
-            
+            KategorijaCilja kc = new KategorijaCilja(rs.getLong("KategorijaID"), rs.getString("NazivKategorije"));
+
             Cilj c = new Cilj(rs.getLong("CiljID"),
                     rs.getString("nazivCilja"), rs.getString("opisCilja"), kc);
 
@@ -109,46 +145,96 @@ public class DnevnaAktivnost extends AbstractDomainObject {
 
     @Override
     public String uslov() {
-        return " WHERE NP.NEDELJNIPLANID = " + nedeljniPlan.getNedeljniPlanID() + 
-                " ORDER BY RB";
+        return " WHERE NP.NEDELJNIPLANID = " + nedeljniPlan.getNedeljniPlanID()
+                + " ORDER BY RB";
     }
 
+    /**
+     * Vraca redni broj dnevne aktivnosti.
+     *
+     * @return redni broj dnevne aktivnosti kao ceo broj
+     */
     public int getRb() {
         return rb;
     }
 
+    /**
+     * Postavlja vrednost rednog broja dnevne aktivnosti.
+     *
+     * @param rb redni broj dnevne aktivnosti kao ceo broj
+     */
     public void setRb(int rb) {
         this.rb = rb;
     }
 
+    /**
+     * Vraca datum dnevne aktivnosti.
+     *
+     * @return datum dnevne aktivnosti kao objekat klase Date
+     */
     public Date getDatumAktivnosti() {
         return datumAktivnosti;
     }
 
+    /**
+     * Postavlja vrednost atributa datum dnevne aktivnosti.
+     *
+     * @param datumAktivnosti datum dnevne aktivnosti kao objekat klase Date
+     */
     public void setDatumAktivnosti(Date datumAktivnosti) {
         this.datumAktivnosti = datumAktivnosti;
     }
 
+    /**
+     * Vraca beleske dnevne aktivnosti.
+     *
+     * @return beleske dnevne aktivnosti kao String
+     */
     public String getBeleske() {
         return beleske;
     }
 
+    /**
+     * Postavlja vrednost atributa beleske.
+     *
+     * @param beleske beleske dnevne aktivnosti kao String
+     */
     public void setBeleske(String beleske) {
         this.beleske = beleske;
     }
 
+    /**
+     * Vraca aktivnost.
+     *
+     * @return aktivnost kao objekat klase Aktivnost
+     */
     public Aktivnost getAktivnost() {
         return aktivnost;
     }
 
+    /**
+     * Postavlja vrednost atributa aktivnost.
+     *
+     * @param aktivnost aktivnost kao objekat klase Aktivnost
+     */
     public void setAktivnost(Aktivnost aktivnost) {
         this.aktivnost = aktivnost;
     }
 
+    /**
+     * Vraca nedeljni plaan.
+     *
+     * @return nedeljni plan kao objekat klase NedeljniPlan
+     */
     public NedeljniPlan getNedeljniPlan() {
         return nedeljniPlan;
     }
 
+    /**
+     * Postavlja vrednost atributa nedeljni plan.
+     *
+     * @param nedeljniPlan nedeljni plan kao objekat klase Nedeljni plan
+     */
     public void setNedeljniPlan(NedeljniPlan nedeljniPlan) {
         this.nedeljniPlan = nedeljniPlan;
     }

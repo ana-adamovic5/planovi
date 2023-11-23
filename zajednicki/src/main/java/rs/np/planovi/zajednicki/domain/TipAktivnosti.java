@@ -10,20 +10,38 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
- * @author adamo
+ * Predstavlja tip aktivnosti. Tip aktivnosti ima definisan identifikator i naziv.
+ * 
+ * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
+ * 
+ * @author Ana Adamovic
  */
 public class TipAktivnosti extends AbstractDomainObject{
     
+    /**
+     * Identifikator tipa aktivnosti kao ceo broj.
+     */
     private Long tipAktivnostiID;
+    
+    /**
+     * Naziv tipa aktivnosti kao String.
+     */
     private String nazivTipaAktivnosti;
 
-  
+    /**
+     * Parametarski konstruktor koji postavlja vrednosti za identifikator i naziv tipa aktivnosti.
+     * 
+     * @param tipAktivnostiID  nova vrednost za identifikator tipa aktivnosti
+     * @param nazivTipaAktivnosti  nova vrednost za naziv tipa aktivnosti
+     */
     public TipAktivnosti(Long tipAktivnostiID, String nazivTipaAktivnosti) {
         this.tipAktivnostiID = tipAktivnostiID;
         this.nazivTipaAktivnosti = nazivTipaAktivnosti;
     }
 
+    /**
+     * Bezparametarski konstruktor
+     */
     public TipAktivnosti() {
     }
     
@@ -86,18 +104,38 @@ public class TipAktivnosti extends AbstractDomainObject{
         return "";
     }
 
+     /**
+     * Vraca identifikator tipa aktivnosti.
+     *
+     * @return identifikator tipa aktivnosti kao ceo broj
+     */
     public Long getTipAktivnostiID() {
         return tipAktivnostiID;
     }
 
+    /**
+     * Postavlja vrednost identifikatora tipa aktivnosti.
+     *
+     * @param tipAktivnostiID identifikator tipa aktivnosti kao ceo broj
+     */
     public void setTipAktivnostiID(Long tipAktivnostiID) {
         this.tipAktivnostiID = tipAktivnostiID;
     }
 
+    /**
+     * Vraca vrednost atributa naziv tip aktivnosti.
+     *
+     * @return naziv tipa aktivnosti kao String
+     */
     public String getNazivTipaAktivnosti() {
         return nazivTipaAktivnosti;
     }
 
+    /**
+     * Postavlja vrednost atributa naziv tip aktivnosti.
+     *
+     * @param nazivTipaAktivnosti naziv tipa aktivnosti kao String
+     */
     public void setNazivTipaAktivnosti(String nazivTipaAktivnosti) {
         this.nazivTipaAktivnosti = nazivTipaAktivnosti;
     }

@@ -6,9 +6,13 @@
 package rs.np.planovi.zajednicki.transfer.util;
 
 /**
- *
- * @author adamo
+ * Predstavlja status serverskog odgovora koji moze da bude Success ili Error.
+ * 
+ * @author Ana Adamovic
  */
 public enum ResponseStatus {
+    /**
+     * Status odgovora.
+     */
     Success, Error
 }

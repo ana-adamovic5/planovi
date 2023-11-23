@@ -10,14 +10,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
+ * Predstavlja aktivnost koju korisnik definise za sastavljanje svojih
+ * planova. Aktivnost ima definisan identifikator, naziv, opis i tip.
+ * 
+ * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class Aktivnost extends AbstractDomainObject {
-    
+
+    /**
+     * Identifikator aktivnosti kao ceo broj.
+     */
     private Long aktivnostID;
+
+    /**
+     * Naziv aktivnosti kao string.
+     */
     private String nazivAktivnosti;
+
+    /**
+     * Opis aktivnosti kao string.
+     */
     private String opisAktivnosti;
+
+    /**
+     * Tip aktivnosti kao spoljni kljuc povezan sa klasom TipAktivnosti.
+     */
     private TipAktivnosti tipAktivnosti;
 
     public Aktivnost(Long aktivnostID, String nazivAktivnosti, String opisAktivnosti, TipAktivnosti tipAktivnosti) {
@@ -27,6 +46,9 @@ public class Aktivnost extends AbstractDomainObject {
         this.tipAktivnosti = tipAktivnosti;
     }
 
+    /**
+     * Bezparametarski konstruktor
+     */
     public Aktivnost() {
     }
 
@@ -34,7 +56,7 @@ public class Aktivnost extends AbstractDomainObject {
     public String toString() {
         return nazivAktivnosti;
     }
-    
+
     @Override
     public String nazivTabele() {
         return " Aktivnost ";
@@ -57,8 +79,8 @@ public class Aktivnost extends AbstractDomainObject {
         while (rs.next()) {
             TipAktivnosti ta = new TipAktivnosti(rs.getLong("TipAktivnostiID"),
                     rs.getString("NazivTipaAktivnosti"));
-            
-            Aktivnost a = new Aktivnost(rs.getLong("aktivnostID"), 
+
+            Aktivnost a = new Aktivnost(rs.getLong("aktivnostID"),
                     rs.getString("nazivAktivnosti"), rs.getString("opisAktivnosti"), ta);
 
             lista.add(a);
@@ -93,36 +115,76 @@ public class Aktivnost extends AbstractDomainObject {
         return "";
     }
 
+    /**
+     * Vraca identifikator aktivnosti.
+     *
+     * @return identifikator aktivnosti kao ceo broj
+     */
     public Long getAktivnostID() {
         return aktivnostID;
     }
 
+    /**
+     * Postavlja vrednost identifikatora aktivnosti.
+     *
+     * @param aktivnostID identifikator aktivnosti kao ceo broj
+     */
     public void setAktivnostID(Long aktivnostID) {
         this.aktivnostID = aktivnostID;
     }
 
+    /**
+     * Vraca naziv aktivnosti.
+     *
+     * @return naziv aktivnosti kao String
+     */
     public String getNazivAktivnosti() {
         return nazivAktivnosti;
     }
 
+    /**
+     * Postavlja vrednost atributa naziv aktivnosti.
+     *
+     * @param nazivAktivnosti naziv aktivnosti kao String
+     */
     public void setNazivAktivnosti(String nazivAktivnosti) {
         this.nazivAktivnosti = nazivAktivnosti;
     }
 
+    /**
+     * Vraca opis aktivnosti.
+     *
+     * @return opis aktivnosti kao String
+     */
     public String getOpisAktivnosti() {
         return opisAktivnosti;
     }
 
+    /**
+     * Postavlja vrednost atributa opis aktivnosti.
+     *
+     * @param opisAktivnosti opis aktivnosti kao String
+     */
     public void setOpisAktivnosti(String opisAktivnosti) {
         this.opisAktivnosti = opisAktivnosti;
     }
 
+    /**
+     * Vraca tip aktivnosti.
+     *
+     * @return tip aktivnosti kao objekat klase TipAktivnosti
+     */
     public TipAktivnosti getTipAktivnosti() {
         return tipAktivnosti;
     }
 
+    /**
+     * Postavlja vrednost tipa aktivnosti.
+     *
+     * @param tipAktivnosti  tip aktivnosti kao objekat klase TipAktivnosti
+     */
     public void setTipAktivnosti(TipAktivnosti tipAktivnosti) {
         this.tipAktivnosti = tipAktivnosti;
     }
-    
+
 }

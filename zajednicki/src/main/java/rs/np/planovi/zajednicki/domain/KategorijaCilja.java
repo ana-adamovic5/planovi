@@ -9,34 +9,73 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
- * @author adamo
+ * Predstavlja kategoriju kojoj cilj pripada. Kategorija cilja ima definisan identifikator i naziv.
+ * 
+ * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
+ * 
+ * @author Ana Adamovic
  */
 public class KategorijaCilja extends AbstractDomainObject{
     
+    /**
+     * Identifikator kategorije cilja kao ceo broj.
+     */
     private Long kategorijaID;
+    
+    /**
+     * Naziv kategorije cilja kao String.
+     */
     private String nazivKategorije;
 
+    /**
+     * Bezparametarski konstruktor
+     */
     public KategorijaCilja() {
     }
 
+    /**
+     * Parametarski konstruktor koji postavlja vrednosti za identifikator i naziv kategorije cilja.
+     * 
+     * @param kategorijaID nova vrednost za identifikator kategorije cilja
+     * @param nazivKategorije nova vrednost za naziv kategorije cilja
+     */
     public KategorijaCilja(Long kategorijaID, String nazivKategorije) {
         this.kategorijaID = kategorijaID;
         this.nazivKategorije = nazivKategorije;
     }
 
+    /**
+     * Vraca identifikator kategorije cilja.
+     *
+     * @return identifikator kategorije cilja kao ceo broj
+     */
     public Long getKategorijaID() {
         return kategorijaID;
     }
 
+    /**
+     * Postavlja vrednost identifikatora kategorije cilja.
+     *
+     * @param kategorijaID identifikator kategorije cilja kao ceo broj
+     */
     public void setKategorijaID(Long kategorijaID) {
         this.kategorijaID = kategorijaID;
     }
 
+    /**
+     * Vraca naziv kategorije cilja.
+     *
+     * @return naziv kategorije cilja kao String
+     */
     public String getNazivKategorije() {
         return nazivKategorije;
     }
 
+    /**
+     * Postavlja vrednost atributa naziv kategorije cilja.
+     *
+     * @param nazivKategorije  naziv cilja kao String
+     */
     public void setNazivKategorije(String nazivKategorije) {
         this.nazivKategorije = nazivKategorije;
     }
