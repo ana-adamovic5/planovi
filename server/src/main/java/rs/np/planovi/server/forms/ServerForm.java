@@ -100,13 +100,7 @@ public class ServerForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    /**
-     * Metoda koja se poziva klikom na dugme "Pokreni server". Ako je server vec
-     * pokrenut, prikazuje se odgovarajuca poruka. Inace, kreira se nova
-     * instanca serverske niti i pokrece se.
-     *
-     * @param evt dogadjaj klika na dugme
-     */
+    
     private void btnPokreniServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPokreniServerActionPerformed
         if (threadServer == null || !threadServer.isAlive()) {
             threadServer = new ThreadServer();
@@ -116,13 +110,7 @@ public class ServerForm extends javax.swing.JFrame {
             btnPokreniServer.setEnabled(false);
         }
     }//GEN-LAST:event_btnPokreniServerActionPerformed
-    /**
-     * Metoda koja se poziva klikom na dugme "Ugasi server". Ako je server
-     * pokrenut, zaustavlja se i gasi program, u suprotnom se prikazuje poruka
-     * da je server ugasen.
-     *
-     * @param evt dogadjaj klika na dugme
-     */
+    
     private void btnUgasiServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUgasiServerActionPerformed
 
         if (threadServer.getServerSocket() != null && threadServer.getServerSocket().isBound()) {

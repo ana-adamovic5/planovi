@@ -35,7 +35,7 @@ import rs.np.planovi.zajednicki.transfer.util.Operation;
  * @see Response
  * @see Thread
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class ThreadClient extends Thread {
 

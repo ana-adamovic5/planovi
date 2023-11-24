@@ -34,7 +34,7 @@ import rs.np.planovi.server.so.tipAktivnosti.SOGetAllTipAktivnosti;
 import rs.np.planovi.server.so.kategorijaCilja.SOGetAllKategorijaCilja;
 
 /**
- * Serverski korntroler je klasa koja upravlja poslovnim logikama servera.
+ * Serverski kontroler poziva sistemske operacije.
  *
  * @author Ana Adamovic
  */
@@ -248,6 +248,7 @@ public class ServerController {
 
     /**
      * Metoda koja izvrsava poslovnu logiku za vracanje liste dnevnih aktivnosti.
+     * @param np nedeljni plan za koji se vraca lista dnevnih aktivnosti
      * @return lista objekata klase DnevnaAktivnost
      * @throws Exception ukoliko ne moze da se vrati lista dnevnih aktivnosti
      */

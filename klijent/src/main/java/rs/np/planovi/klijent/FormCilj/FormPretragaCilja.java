@@ -12,7 +12,7 @@ import rs.np.planovi.klijent.models.TableModelCiljevi;
 /**
  * Forma za pretragu ciljeva.
  * 
- * @author An Adamovic
+ * @author Ana Adamovic
  */
 public class FormPretragaCilja extends javax.swing.JDialog {
     
