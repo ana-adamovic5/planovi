@@ -121,10 +121,15 @@ public class Beleska extends AbstractDomainObject{
 
     /**
      * Postavlja vrednost identifikatora beleske.
+     * 
+     * Identifikator mora biti veci od nule.
      *
      * @param beleskaID identifikator beleske kao ceo broj
+     * @throws IllegalArgumentException ako se unese ID manji od 1
      */
     public void setBeleskaID(Long beleskaID) {
+        if(beleskaID<=0)
+            throw new IllegalArgumentException("ID ne sme biti nula ili manji.");
         this.beleskaID = beleskaID;
     }
 
@@ -139,10 +144,15 @@ public class Beleska extends AbstractDomainObject{
 
     /**
      * Postavlja vrednost atributa sadrzaj.
+     * 
+     * Sadrzaj beleske ne sme biti null.
      *
      * @param sadrzaj sadrzaj beleske kao String
+     * @throws NullPointerException ako se unese sadrzaj beleske koji je null
      */
     public void setSadrzaj(String sadrzaj) {
+        if(sadrzaj==null)
+            throw new NullPointerException("Sadrzaj beleske ne sme biti null.");
         this.sadrzaj = sadrzaj;
     }
 
@@ -157,10 +167,15 @@ public class Beleska extends AbstractDomainObject{
 
     /**
      * Postavlja vrednost atributa korisnik.
+     * 
+     * Korisnik beleske ne sme biti null.
      *
      * @param korisnik  korisnik kao objekat klase Korisnik
+     * @throws NullPointerException ako je korisnik beleske null
      */
     public void setKorisnik(Korisnik korisnik) {
+        if(korisnik==null)
+            throw new NullPointerException("Korisnik ne sme biti null.");
         this.korisnik = korisnik;
     }
 
@@ -175,10 +190,15 @@ public class Beleska extends AbstractDomainObject{
 
     /**
      * Postavlja vrednost atributa naslov.
+     * 
+     * Naslov beleske ne sme biti null.
      *
      * @param naslov naslov beleske kao String
+     * @throws NullPointerException ako je unet naslov beleske null
      */
     public void setNaslov(String naslov) {
+        if(naslov==null)
+            throw new NullPointerException("Naslov beleske ne sme biti null");
         this.naslov = naslov;
     }
     
