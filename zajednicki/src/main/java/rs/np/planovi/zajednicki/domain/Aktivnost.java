@@ -130,6 +130,7 @@ public class Aktivnost extends AbstractDomainObject {
      * Identifikator mora biti veci od nule.
      * 
      * @param aktivnostID identifikator aktivnosti kao ceo broj
+     * @throws IllegalArgumentException ako se unese id koji je manji od 1
      */
     public void setAktivnostID(Long aktivnostID) {
          if (aktivnostID <= 0) {

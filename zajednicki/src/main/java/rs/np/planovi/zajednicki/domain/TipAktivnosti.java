@@ -10,29 +10,31 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Predstavlja tip aktivnosti. Tip aktivnosti ima definisan identifikator i naziv.
- * 
+ * Predstavlja tip aktivnosti. Tip aktivnosti ima definisan identifikator i
+ * naziv.
+ *
  * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
- * 
+ *
  * @author Ana Adamovic
  */
-public class TipAktivnosti extends AbstractDomainObject{
-    
+public class TipAktivnosti extends AbstractDomainObject {
+
     /**
      * Identifikator tipa aktivnosti kao ceo broj.
      */
     private Long tipAktivnostiID;
-    
+
     /**
      * Naziv tipa aktivnosti kao String.
      */
     private String nazivTipaAktivnosti;
 
     /**
-     * Parametarski konstruktor koji postavlja vrednosti za identifikator i naziv tipa aktivnosti.
-     * 
-     * @param tipAktivnostiID  nova vrednost za identifikator tipa aktivnosti
-     * @param nazivTipaAktivnosti  nova vrednost za naziv tipa aktivnosti
+     * Parametarski konstruktor koji postavlja vrednosti za identifikator i
+     * naziv tipa aktivnosti.
+     *
+     * @param tipAktivnostiID nova vrednost za identifikator tipa aktivnosti
+     * @param nazivTipaAktivnosti nova vrednost za naziv tipa aktivnosti
      */
     public TipAktivnosti(Long tipAktivnostiID, String nazivTipaAktivnosti) {
         this.tipAktivnostiID = tipAktivnostiID;
@@ -44,11 +46,12 @@ public class TipAktivnosti extends AbstractDomainObject{
      */
     public TipAktivnosti() {
     }
-    
+
     @Override
     public String toString() {
         return nazivTipaAktivnosti;
     }
+
     @Override
     public String nazivTabele() {
         return " TipAktivnosti ";
@@ -104,7 +107,7 @@ public class TipAktivnosti extends AbstractDomainObject{
         return "";
     }
 
-     /**
+    /**
      * Vraca identifikator tipa aktivnosti.
      *
      * @return identifikator tipa aktivnosti kao ceo broj
@@ -116,9 +119,14 @@ public class TipAktivnosti extends AbstractDomainObject{
     /**
      * Postavlja vrednost identifikatora tipa aktivnosti.
      *
+     * Identifikator mora biti veci od nule.
+     *
      * @param tipAktivnostiID identifikator tipa aktivnosti kao ceo broj
+     * @throws IllegalArgumentException ako se unese id koji je manji od 1
      */
     public void setTipAktivnostiID(Long tipAktivnostiID) {
+        if(tipAktivnostiID<=0)
+            throw new IllegalArgumentException("ID tipa aktivnosti ne sme biti manji od 1.");
         this.tipAktivnostiID = tipAktivnostiID;
     }
 
@@ -133,11 +141,16 @@ public class TipAktivnosti extends AbstractDomainObject{
 
     /**
      * Postavlja vrednost atributa naziv tip aktivnosti.
+     * 
+     * Naziv tipa aktivnosti ne sme biti null.
      *
      * @param nazivTipaAktivnosti naziv tipa aktivnosti kao String
+     * @throw NullPointerException ako se unese naziv tipa aktivnosti koji je null
      */
     public void setNazivTipaAktivnosti(String nazivTipaAktivnosti) {
+        if(nazivTipaAktivnosti==null)
+            throw new NullPointerException("Naziv tipa aktivnosti ne sme biti null.");
         this.nazivTipaAktivnosti = nazivTipaAktivnosti;
     }
-    
+
 }
