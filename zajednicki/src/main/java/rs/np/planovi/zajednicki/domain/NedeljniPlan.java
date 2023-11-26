@@ -14,7 +14,7 @@ import java.util.Date;
  * Predstavlja nedeljni plan koji korisnik unosi, cita, menja i brise iz
  * sistema. Nedeljni plan ima definisan identifikator, datum pocetka i datum
  * zavrsetkaf, cilj, korisnika i listu dnevnih aktivnosti.
- * 
+ *
  * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
  *
  * @author Ana Adamovic
@@ -54,15 +54,16 @@ public class NedeljniPlan extends AbstractDomainObject {
     private ArrayList<DnevnaAktivnost> dnevneAktivnosti;
 
     /**
-     * Parametarski konstruktor koji postavlja vrednosti za identifikator, datum pocetka, datum zavrsetka,
-     * cilj, korisnika i listu dnevnih aktivnosti.
-     * 
+     * Parametarski konstruktor koji postavlja vrednosti za identifikator, datum
+     * pocetka, datum zavrsetka, cilj, korisnika i listu dnevnih aktivnosti.
+     *
      * @param nedeljniPlanID nova vrednost za identifikator nedeljnog plana
      * @param datumOd nova vrednost za datum pocetka nedeljnog plana
      * @param datumDo nova vrednost za datum zavrsetka nedeljnog plana
      * @param cilj nova vrednost za cilj nedeljnog plana
      * @param korisnik nova vrednost za korisnika nedeljnog plana
-     * @param dnevneAktivnosti nova vrednost za listu dnevnih aktivnosti nedeljnog plana
+     * @param dnevneAktivnosti nova vrednost za listu dnevnih aktivnosti
+     * nedeljnog plana
      */
     public NedeljniPlan(Long nedeljniPlanID, Date datumOd, Date datumDo, Cilj cilj, Korisnik korisnik, ArrayList<DnevnaAktivnost> dnevneAktivnosti) {
         this.nedeljniPlanID = nedeljniPlanID;
@@ -161,9 +162,15 @@ public class NedeljniPlan extends AbstractDomainObject {
     /**
      * Postavlja vrednost identifikatora nedeljnog plana.
      *
+     * Identifikator mora biti veci od nule.
+     *
      * @param nedeljniPlanID identifikator nedeljnog plana kao ceo broj
+     * @throws IllegalArgumentException ako je ID manji od 1
      */
     public void setNedeljniPlanID(Long nedeljniPlanID) {
+        if (nedeljniPlanID <= 0) {
+            throw new IllegalArgumentException("ID ne sme biti nula ili manje.");
+        }
         this.nedeljniPlanID = nedeljniPlanID;
     }
 
@@ -179,9 +186,16 @@ public class NedeljniPlan extends AbstractDomainObject {
     /**
      * Postavlja vrednost datuma pocetka nedeljnog plana.
      *
+     * Datum pocetka nedeljnog plana ne sme biti null.
+     *
      * @param datumOd datum pocetka nedeljnog plana kao objekat klase Date
+     * @throws NullPointerException ako je uneti datum pocetka nedeljnog plana
+     * null
      */
     public void setDatumOd(Date datumOd) {
+        if (datumOd == null) {
+            throw new NullPointerException("Datum pocetka nedeljnog plana ne sme biti null.");
+        }
         this.datumOd = datumOd;
     }
 
@@ -197,9 +211,16 @@ public class NedeljniPlan extends AbstractDomainObject {
     /**
      * Postavlja vrednost datuma zavrsetka nedeljnog plana.
      *
+     * Datum zavrsetka nedeljnog plana ne sme biti null.
+     *
      * @param datumDo datum zavrsetka nedeljnog plana kao objekat klase Date
+     * @throws NullPointerException ako je uneti datum zavrsetka nedeljnog plana
+     * null
      */
     public void setDatumDo(Date datumDo) {
+        if (datumDo == null) {
+            throw new NullPointerException("Datum zavrsetka nedeljnog plana ne sme biti null.");
+        }
         this.datumDo = datumDo;
     }
 
@@ -215,9 +236,15 @@ public class NedeljniPlan extends AbstractDomainObject {
     /**
      * Postavlja vrednost atributa cilj.
      *
+     * Cilj nedeljnog plana ne sme biti null.
+     *
      * @param cilj cilj kao objekat klase Cilj
+     * @throws NullPointerException ako je uneti cilj nedeljnog plana null
      */
     public void setCilj(Cilj cilj) {
+        if (cilj == null) {
+            throw new NullPointerException("Cilj nedeljnog plana ne sme biti null.");
+        }
         this.cilj = cilj;
     }
 
@@ -233,9 +260,16 @@ public class NedeljniPlan extends AbstractDomainObject {
     /**
      * Postavlja vrednost atributa korisnik.
      *
+     * Korisnik nedeljnog plana ne sme biti null.
+     *
      * @param korisnik korisnik kao objekat klase Korisnik
+     * @throws NullPointerException ako je uneti korisnik nedeljnog plana null
      */
     public void setKorisnik(Korisnik korisnik) {
+        if (korisnik == null) {
+            throw new NullPointerException("Korisnik nedeljnog plana ne sme biti null.");
+        
+        }
         this.korisnik = korisnik;
     }
 
@@ -251,11 +285,18 @@ public class NedeljniPlan extends AbstractDomainObject {
     /**
      * Postavlja listu dnevnih aktivnosti.
      *
-     * Lista mora imati minimum 3 dnevne aktivnosti.
+     * Lista dnevnih aktivnosti ne sme biti null i mora imati minimum 3 dnevne
+     * aktivnosti.
      *
      * @param dnevneAktivnosti lista sa dnevnim aktivnostima.
      */
     public void setDnevneAktivnosti(ArrayList<DnevnaAktivnost> dnevneAktivnosti) {
+        if (dnevneAktivnosti == null) {
+            throw new NullPointerException("Lista dnevnih aktivnosti ne sme biti null.");
+        }
+        if (dnevneAktivnosti.size() < 3) {
+            throw new IllegalArgumentException("Lista mora imati minimum 3 dnevne aktivnosti.");
+        }
         this.dnevneAktivnosti = dnevneAktivnosti;
     }
 
