@@ -18,19 +18,19 @@ import org.junit.jupiter.params.provider.CsvSource;
  * @author adamo
  */
 public class KategorijaCiljaTest extends TestCase {
-    
+
     KategorijaCilja kategorijaCilja;
-    
+
     @BeforeEach
     @Override
     protected void setUp() throws Exception {
-        kategorijaCilja=new KategorijaCilja();
+        kategorijaCilja = new KategorijaCilja();
     }
-    
+
     @AfterEach
     @Override
     protected void tearDown() throws Exception {
-        kategorijaCilja=null;
+        kategorijaCilja = null;
     }
 
     @Test
@@ -38,14 +38,21 @@ public class KategorijaCiljaTest extends TestCase {
         long kategorijaID = 1;
         String nazivKategorije = "Fitnes";
 
-        KategorijaCilja kc=new KategorijaCilja(kategorijaID, nazivKategorije);
-        
-        assertEquals(kategorijaID, (long) kc.getKategorijaID());
-        assertEquals(nazivKategorije,kc.getNazivKategorije());
+        KategorijaCilja kc = new KategorijaCilja(kategorijaID, nazivKategorije);
 
+        assertEquals(kategorijaID, (long) kc.getKategorijaID());
+        assertEquals(nazivKategorije, kc.getNazivKategorije());
     }
-    
-     @Test
+
+    @Test
+    public void testToString() {
+        kategorijaCilja.setNazivKategorije("Fitnes");
+        String s = kategorijaCilja.toString();
+
+        assertTrue(s.contains("Fitnes"));
+    }
+
+    @Test
     public void testSetKategorijaID() {
         long kategorijaID = 1;
         kategorijaCilja.setKategorijaID(kategorijaID);
@@ -65,7 +72,7 @@ public class KategorijaCiljaTest extends TestCase {
 
         assertEquals("ID kategorije cilja ne sme biti manji od 1.", e.getMessage());
     }
-    
+
     @Test
     public void testSetNazivKategorijeSveOk() {
         kategorijaCilja.setNazivKategorije("Fitnes");

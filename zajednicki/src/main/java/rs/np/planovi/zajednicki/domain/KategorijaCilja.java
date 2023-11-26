@@ -9,19 +9,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Predstavlja kategoriju kojoj cilj pripada. Kategorija cilja ima definisan identifikator i naziv.
- * 
+ * Predstavlja kategoriju kojoj cilj pripada. Kategorija cilja ima definisan
+ * identifikator i naziv.
+ *
  * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
- * 
+ *
  * @author Ana Adamovic
  */
-public class KategorijaCilja extends AbstractDomainObject{
-    
+public class KategorijaCilja extends AbstractDomainObject {
+
     /**
      * Identifikator kategorije cilja kao ceo broj.
      */
     private Long kategorijaID;
-    
+
     /**
      * Naziv kategorije cilja kao String.
      */
@@ -34,8 +35,9 @@ public class KategorijaCilja extends AbstractDomainObject{
     }
 
     /**
-     * Parametarski konstruktor koji postavlja vrednosti za identifikator i naziv kategorije cilja.
-     * 
+     * Parametarski konstruktor koji postavlja vrednosti za identifikator i
+     * naziv kategorije cilja.
+     *
      * @param kategorijaID nova vrednost za identifikator kategorije cilja
      * @param nazivKategorije nova vrednost za naziv kategorije cilja
      */
@@ -55,15 +57,16 @@ public class KategorijaCilja extends AbstractDomainObject{
 
     /**
      * Postavlja vrednost identifikatora kategorije cilja.
-     * 
-     *  Identifikator mora biti veci od nule.
+     *
+     * Identifikator mora biti veci od nule.
      *
      * @param kategorijaID identifikator kategorije cilja kao ceo broj
      * @throws IllegalArgumentException ako se unese id koji je manji od 1
      */
     public void setKategorijaID(Long kategorijaID) {
-         if(kategorijaID<=0)
+        if (kategorijaID <= 0) {
             throw new IllegalArgumentException("ID kategorije cilja ne sme biti manji od 1.");
+        }
         this.kategorijaID = kategorijaID;
     }
 
@@ -80,21 +83,23 @@ public class KategorijaCilja extends AbstractDomainObject{
      * Postavlja vrednost atributa naziv kategorije cilja.
      *
      * Naziv kategorije cilja ne sme biti null.
-     * 
-     * @param nazivKategorije  naziv cilja kao String
-     * @throw NullPointerException ako se unese naziv kategorije cilja koji je null
+     *
+     * @param nazivKategorije naziv cilja kao String
+     * @throw NullPointerException ako se unese naziv kategorije cilja koji je
+     * null
      */
     public void setNazivKategorije(String nazivKategorije) {
-        if(nazivKategorije==null)
+        if (nazivKategorije == null) {
             throw new NullPointerException("Naziv kategorije cilja ne sme biti null.");
+        }
         this.nazivKategorije = nazivKategorije;
     }
 
-    
     @Override
     public String toString() {
         return nazivKategorije;
     }
+
     @Override
     public String nazivTabele() {
         return " KategorijaCilja ";

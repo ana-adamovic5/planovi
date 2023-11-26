@@ -46,7 +46,14 @@ public class CiljTest extends TestCase {
         assertEquals(naziv, c.getNazivCilja());
         assertEquals(opis, c.getOpisCilja());
         assertEquals(kategorijaCilja, c.getKategorijaCilja());
+    }
 
+    @Test
+    public void testToString() {
+        cilj.setNazivCilja("Licni razvoj");
+        String s = cilj.toString();
+
+        assertTrue(s.contains("Licni razvoj"));
     }
 
     @Test

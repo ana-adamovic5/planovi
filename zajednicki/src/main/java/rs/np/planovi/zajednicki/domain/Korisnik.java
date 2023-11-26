@@ -136,7 +136,7 @@ public class Korisnik extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa password korisnika.
-     * 
+     *
      * Password ne sme biti null niti prazan String.
      *
      * @param password password korisnika kao String
@@ -144,12 +144,14 @@ public class Korisnik extends AbstractDomainObject {
      * @throws IllegalArgumentException ako se unese prazan String za password
      */
     public void setPassword(String password) {
-        if(password==null)
+        if (password == null) {
             throw new NullPointerException("Password ne sme biti null.");
-        if(password.isEmpty())
+        }
+        if (password.isEmpty()) {
             throw new IllegalArgumentException("Password ne sme biti prazan String.");
-        
-        this.password=password;
+        }
+
+        this.password = password;
     }
 
     /**
@@ -163,14 +165,15 @@ public class Korisnik extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa ime korisnika.
-     * 
+     *
      * Ime korisnika ne sme biti null.
      *
      * @param ime ime korisnika kao String
      */
     public void setIme(String ime) {
-        if(ime==null)
+        if (ime == null) {
             throw new NullPointerException("Ime korisnika ne sme biti null.");
+        }
         this.ime = ime;
     }
 
@@ -185,14 +188,15 @@ public class Korisnik extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa prezime korisnika.
-     * 
+     *
      * Prezime korisnika ne sme biti null.
      *
      * @param prezime prezime korisnika kao String
      */
     public void setPrezime(String prezime) {
-        if(prezime==null)
+        if (prezime == null) {
             throw new NullPointerException("Prezime korisnika ne sme biti null.");
+        }
         this.prezime = prezime;
     }
 

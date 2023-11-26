@@ -23,7 +23,7 @@ public class NedeljniPlanTest extends TestCase {
 
     NedeljniPlan nedeljniPlan;
     KategorijaCilja kategorijaCilja;
-    Cilj cilj ;
+    Cilj cilj;
     ArrayList<DnevnaAktivnost> dnevneAktivnosti;
     Korisnik korisnik;
     Aktivnost aktivnost;
@@ -34,11 +34,11 @@ public class NedeljniPlanTest extends TestCase {
     protected void setUp() throws Exception {
         nedeljniPlan = new NedeljniPlan();
         kategorijaCilja = new KategorijaCilja((long) 1, "Licni razvoj");
-        cilj=new Cilj((long) 1, "Licni razvoj", "Edukacije", kategorijaCilja);
-        korisnik=new Korisnik((long) 1, "Mina", "Lazic", "mina", "mina123");
-        tipAktivnosti=new TipAktivnosti((long)1 , "Opustajuca");
-        aktivnost=new Aktivnost((long) 1, "Masaza","Sportska masaza" , tipAktivnosti);
-        dnevneAktivnosti=new ArrayList<>();
+        cilj = new Cilj((long) 1, "Licni razvoj", "Edukacije", kategorijaCilja);
+        korisnik = new Korisnik((long) 1, "Mina", "Lazic", "mina", "mina123");
+        tipAktivnosti = new TipAktivnosti((long) 1, "Opustajuca");
+        aktivnost = new Aktivnost((long) 1, "Masaza", "Sportska masaza", tipAktivnosti);
+        dnevneAktivnosti = new ArrayList<>();
         dnevneAktivnosti.add(new DnevnaAktivnost(nedeljniPlan, 1, new Date(), "beleske1", aktivnost));
         dnevneAktivnosti.add(new DnevnaAktivnost(nedeljniPlan, 2, new Date(), "beleske2", aktivnost));
         dnevneAktivnosti.add(new DnevnaAktivnost(nedeljniPlan, 3, new Date(), "beleske3", aktivnost));
@@ -48,12 +48,12 @@ public class NedeljniPlanTest extends TestCase {
     @Override
     protected void tearDown() throws Exception {
         nedeljniPlan = null;
-        kategorijaCilja=null;
-        cilj=null;
-        korisnik=null;
-        tipAktivnosti=null;
-        aktivnost=null;
-        dnevneAktivnosti=null;
+        kategorijaCilja = null;
+        cilj = null;
+        korisnik = null;
+        tipAktivnosti = null;
+        aktivnost = null;
+        dnevneAktivnosti = null;
     }
 
     @Test
@@ -70,7 +70,6 @@ public class NedeljniPlanTest extends TestCase {
         assertEquals(cilj, np.getCilj());
         assertEquals(korisnik, np.getKorisnik());
         assertEquals(dnevneAktivnosti, np.getDnevneAktivnosti());
-        
 
     }
 
@@ -109,8 +108,8 @@ public class NedeljniPlanTest extends TestCase {
 
         assertEquals("Datum pocetka nedeljnog plana ne sme biti null.", e.getMessage());
     }
-    
-     @Test
+
+    @Test
     public void testSetDatumDo() {
         nedeljniPlan.setDatumDo(new Date());
 
@@ -124,8 +123,8 @@ public class NedeljniPlanTest extends TestCase {
 
         assertEquals("Datum zavrsetka nedeljnog plana ne sme biti null.", e.getMessage());
     }
-    
-     @Test
+
+    @Test
     public void testSetCilj() {
         nedeljniPlan.setCilj(cilj);
 
@@ -139,8 +138,8 @@ public class NedeljniPlanTest extends TestCase {
 
         assertEquals("Cilj nedeljnog plana ne sme biti null.", e.getMessage());
     }
-    
-     @Test
+
+    @Test
     public void testSetKorisnik() {
         nedeljniPlan.setKorisnik(korisnik);
 
@@ -154,8 +153,8 @@ public class NedeljniPlanTest extends TestCase {
 
         assertEquals("Korisnik nedeljnog plana ne sme biti null.", e.getMessage());
     }
-    
-     @Test
+
+    @Test
     public void testSetDnevneAktivnosti() {
         nedeljniPlan.setDnevneAktivnosti(dnevneAktivnosti);
 
@@ -169,10 +168,10 @@ public class NedeljniPlanTest extends TestCase {
 
         assertEquals("Lista dnevnih aktivnosti ne sme biti null.", e.getMessage());
     }
-    
+
     @Test
     public void testSetDnevneAktivnostiManjeOd3() {
-        ArrayList<DnevnaAktivnost> da=new ArrayList<>();
+        ArrayList<DnevnaAktivnost> da = new ArrayList<>();
         da.add(new DnevnaAktivnost(nedeljniPlan, 1, new Date(), "beleske1", aktivnost));
         Exception e = assertThrows(IllegalArgumentException.class,
                 () -> nedeljniPlan.setDnevneAktivnosti(da));

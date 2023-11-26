@@ -47,7 +47,17 @@ public class KorisnikTest extends TestCase {
         assertEquals(prezime, k.getPrezime());
         assertEquals(username, k.getUsername());
         assertEquals(password, k.getPassword());
+    }
 
+    @Test
+    public void testToString() {
+        korisnik.setIme("Ana");
+        korisnik.setPrezime("Adamovic");
+
+        String s = korisnik.toString();
+
+        assertTrue(s.contains("Ana"));
+        assertTrue(s.contains("Adamovic"));
     }
 
     @Test
@@ -116,14 +126,14 @@ public class KorisnikTest extends TestCase {
 
         assertEquals("Password ne sme biti prazan String.", e.getMessage());
     }
-    
+
     @Test
     public void testSetIme() {
         korisnik.setIme("Nina");
 
         assertEquals("Nina", korisnik.getIme());
     }
-    
+
     @Test
     public void testSetImeNull() {
         Exception e = assertThrows(NullPointerException.class,
@@ -131,14 +141,14 @@ public class KorisnikTest extends TestCase {
 
         assertEquals("Ime korisnika ne sme biti null.", e.getMessage());
     }
-    
+
     @Test
     public void testSetPrezime() {
         korisnik.setPrezime("Peric");
 
         assertEquals("Peric", korisnik.getPrezime());
     }
-    
+
     @Test
     public void testSetPrezimeNull() {
         Exception e = assertThrows(NullPointerException.class,
@@ -146,5 +156,5 @@ public class KorisnikTest extends TestCase {
 
         assertEquals("Prezime korisnika ne sme biti null.", e.getMessage());
     }
-    
+
 }

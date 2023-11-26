@@ -268,7 +268,7 @@ public class NedeljniPlan extends AbstractDomainObject {
     public void setKorisnik(Korisnik korisnik) {
         if (korisnik == null) {
             throw new NullPointerException("Korisnik nedeljnog plana ne sme biti null.");
-        
+
         }
         this.korisnik = korisnik;
     }

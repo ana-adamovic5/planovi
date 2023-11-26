@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Predstavlja aktivnost koju korisnik definise za sastavljanje svojih
- * planova. Aktivnost ima definisan identifikator, naziv, opis i tip.
- * 
+ * Predstavlja aktivnost koju korisnik definise za sastavljanje svojih planova.
+ * Aktivnost ima definisan identifikator, naziv, opis i tip.
+ *
  * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
  *
  * @author Ana Adamovic
@@ -128,12 +128,12 @@ public class Aktivnost extends AbstractDomainObject {
      * Postavlja vrednost identifikatora aktivnosti.
      *
      * Identifikator mora biti veci od nule.
-     * 
+     *
      * @param aktivnostID identifikator aktivnosti kao ceo broj
      * @throws IllegalArgumentException ako se unese id koji je manji od 1
      */
     public void setAktivnostID(Long aktivnostID) {
-         if (aktivnostID <= 0) {
+        if (aktivnostID <= 0) {
             throw new IllegalArgumentException("ID aktivnosti ne sme biti nula ili manji.");
         }
 
@@ -151,15 +151,16 @@ public class Aktivnost extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa naziv aktivnosti.
-     * 
+     *
      * Naziv aktivnosti ne sme biti null.
      *
      * @param nazivAktivnosti naziv aktivnosti kao String
      * @throws NullPointerException ako je uneti naziv aktivnosti null
      */
     public void setNazivAktivnosti(String nazivAktivnosti) {
-        if(nazivAktivnosti==null)
+        if (nazivAktivnosti == null) {
             throw new NullPointerException("Naziv aktivnosti ne sme biti null.");
+        }
         this.nazivAktivnosti = nazivAktivnosti;
     }
 
@@ -174,15 +175,16 @@ public class Aktivnost extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa opis aktivnosti.
-     * 
+     *
      * Opis aktivnosti ne sme biti null.
      *
      * @param opisAktivnosti opis aktivnosti kao String
      * @throws NullPointerException ako je uneti opis aktivnosti null
      */
     public void setOpisAktivnosti(String opisAktivnosti) {
-        if(opisAktivnosti==null)
+        if (opisAktivnosti == null) {
             throw new NullPointerException("Opis aktivnosti ne sme biti null.");
+        }
         this.opisAktivnosti = opisAktivnosti;
     }
 
@@ -197,15 +199,16 @@ public class Aktivnost extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost tipa aktivnosti.
-     * 
+     *
      * Tip aktivnosti ne sme biti null.
      *
-     * @param tipAktivnosti  tip aktivnosti kao objekat klase TipAktivnosti
+     * @param tipAktivnosti tip aktivnosti kao objekat klase TipAktivnosti
      * @throws NullPointerException ako je uneti tip aktivnosti null
      */
     public void setTipAktivnosti(TipAktivnosti tipAktivnosti) {
-        if(tipAktivnosti==null)
+        if (tipAktivnosti == null) {
             throw new NullPointerException("Tip aktivnosti ne sme biti null.");
+        }
         this.tipAktivnosti = tipAktivnosti;
     }
 

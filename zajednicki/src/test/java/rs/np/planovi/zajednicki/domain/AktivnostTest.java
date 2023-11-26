@@ -18,19 +18,19 @@ import org.junit.jupiter.params.provider.CsvSource;
  * @author Ana Adamovic
  */
 public class AktivnostTest extends TestCase {
-    
+
     Aktivnost aktivnost;
-    
+
     @BeforeEach
     @Override
     protected void setUp() throws Exception {
-        aktivnost=new Aktivnost();
+        aktivnost = new Aktivnost();
     }
-    
+
     @AfterEach
     @Override
     protected void tearDown() throws Exception {
-        aktivnost=null;
+        aktivnost = null;
     }
 
     @Test
@@ -38,18 +38,25 @@ public class AktivnostTest extends TestCase {
         long aktivnostID = 1;
         String nazivAktivnosti = "Masaza";
         String opisAktivnosti = "Sportska masaza";
-        TipAktivnosti tipAktivnosti=new TipAktivnosti((long)1, "Opustajuca");
+        TipAktivnosti tipAktivnosti = new TipAktivnosti((long) 1, "Opustajuca");
 
-        Aktivnost a=new Aktivnost(aktivnostID, nazivAktivnosti, opisAktivnosti, tipAktivnosti);
-        
+        Aktivnost a = new Aktivnost(aktivnostID, nazivAktivnosti, opisAktivnosti, tipAktivnosti);
+
         assertEquals(aktivnostID, (long) a.getAktivnostID());
         assertEquals(nazivAktivnosti, a.getNazivAktivnosti());
         assertEquals(opisAktivnosti, a.getOpisAktivnosti());
         assertEquals(tipAktivnosti, a.getTipAktivnosti());
-
     }
-    
-     @Test
+
+    @Test
+    public void testToString() {
+        aktivnost.setNazivAktivnosti("Masaza");
+        String s = aktivnost.toString();
+
+        assertTrue(s.contains("Masaza"));
+    }
+
+    @Test
     public void testSetAktivnostID() {
         long aktivnostID = 1;
         aktivnost.setAktivnostID(aktivnostID);
@@ -69,7 +76,7 @@ public class AktivnostTest extends TestCase {
 
         assertEquals("ID aktivnosti ne sme biti nula ili manji.", e.getMessage());
     }
-    
+
     @Test
     public void testSetNazivAktivnostiSveOk() {
         aktivnost.setNazivAktivnosti("Masaza");
@@ -84,7 +91,7 @@ public class AktivnostTest extends TestCase {
 
         assertEquals("Naziv aktivnosti ne sme biti null.", e.getMessage());
     }
-    
+
     @Test
     public void testSetOpisAktivnostiSveOk() {
         aktivnost.setOpisAktivnosti("Sportska masaza");
@@ -99,10 +106,10 @@ public class AktivnostTest extends TestCase {
 
         assertEquals("Opis aktivnosti ne sme biti null.", e.getMessage());
     }
-    
+
     @Test
     public void testSetTipAktivnostiSveOk() {
-        TipAktivnosti tipAktivnosti=new TipAktivnosti((long)1, "Opustajuca");
+        TipAktivnosti tipAktivnosti = new TipAktivnosti((long) 1, "Opustajuca");
         aktivnost.setTipAktivnosti(tipAktivnosti);
 
         assertEquals(tipAktivnosti, aktivnost.getTipAktivnosti());

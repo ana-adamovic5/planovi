@@ -125,8 +125,9 @@ public class TipAktivnosti extends AbstractDomainObject {
      * @throws IllegalArgumentException ako se unese id koji je manji od 1
      */
     public void setTipAktivnostiID(Long tipAktivnostiID) {
-        if(tipAktivnostiID<=0)
+        if (tipAktivnostiID <= 0) {
             throw new IllegalArgumentException("ID tipa aktivnosti ne sme biti manji od 1.");
+        }
         this.tipAktivnostiID = tipAktivnostiID;
     }
 
@@ -141,15 +142,17 @@ public class TipAktivnosti extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa naziv tip aktivnosti.
-     * 
+     *
      * Naziv tipa aktivnosti ne sme biti null.
      *
      * @param nazivTipaAktivnosti naziv tipa aktivnosti kao String
-     * @throw NullPointerException ako se unese naziv tipa aktivnosti koji je null
+     * @throw NullPointerException ako se unese naziv tipa aktivnosti koji je
+     * null
      */
     public void setNazivTipaAktivnosti(String nazivTipaAktivnosti) {
-        if(nazivTipaAktivnosti==null)
+        if (nazivTipaAktivnosti == null) {
             throw new NullPointerException("Naziv tipa aktivnosti ne sme biti null.");
+        }
         this.nazivTipaAktivnosti = nazivTipaAktivnosti;
     }
 

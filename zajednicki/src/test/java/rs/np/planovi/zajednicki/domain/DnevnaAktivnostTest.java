@@ -60,7 +60,7 @@ public class DnevnaAktivnostTest extends TestCase {
         assertEquals(beleske, da.getBeleske());
         assertEquals(aktivnost, da.getAktivnost());
     }
-    
+
     @Test
     public void testSetRedniBroj() {
         dnevnaAktivnost.setRb(1);
@@ -81,8 +81,7 @@ public class DnevnaAktivnostTest extends TestCase {
         assertEquals("Redni broj mora biti veci od nule.", e.getMessage());
     }
 
-    
-     @Test
+    @Test
     public void testSetNedeljniPlan() {
         dnevnaAktivnost.setNedeljniPlan(nedeljniPlan);
 
@@ -96,7 +95,7 @@ public class DnevnaAktivnostTest extends TestCase {
 
         assertEquals("Nedeljni plan ne sme biti null.", e.getMessage());
     }
-    
+
     @Test
     public void testSetDatum() {
         dnevnaAktivnost.setDatumAktivnosti(new Date());
@@ -111,8 +110,8 @@ public class DnevnaAktivnostTest extends TestCase {
 
         assertEquals("Datum aktivnosti ne sme biti null.", e.getMessage());
     }
-    
-     @Test
+
+    @Test
     public void testSetBeleske() {
         dnevnaAktivnost.setBeleske("beleske");
 
@@ -126,8 +125,8 @@ public class DnevnaAktivnostTest extends TestCase {
 
         assertEquals("Beleske ne smeju biti null.", e.getMessage());
     }
-    
-     @Test
+
+    @Test
     public void testSetAktivnost() {
         dnevnaAktivnost.setAktivnost(aktivnost);
 

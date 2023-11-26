@@ -18,34 +18,41 @@ import org.junit.jupiter.params.provider.CsvSource;
  * @author adamo
  */
 public class TipAktivnostiTest extends TestCase {
-   
+
     TipAktivnosti tipAktivnosti;
-    
+
     @BeforeEach
     @Override
     protected void setUp() throws Exception {
-        tipAktivnosti=new TipAktivnosti();
+        tipAktivnosti = new TipAktivnosti();
     }
-    
+
     @AfterEach
     @Override
     protected void tearDown() throws Exception {
-        tipAktivnosti=null;
+        tipAktivnosti = null;
     }
 
-     @Test
+    @Test
     public void testTipAktivnosti() {
         long tipAktivnostiID = 1;
         String nazivTipaAktivnosti = "Opustajuca";
 
-        TipAktivnosti ta=new TipAktivnosti(tipAktivnostiID, nazivTipaAktivnosti);
-        
-        assertEquals(tipAktivnostiID, (long) ta.getTipAktivnostiID());
-        assertEquals(nazivTipaAktivnosti,ta.getNazivTipaAktivnosti());
+        TipAktivnosti ta = new TipAktivnosti(tipAktivnostiID, nazivTipaAktivnosti);
 
+        assertEquals(tipAktivnostiID, (long) ta.getTipAktivnostiID());
+        assertEquals(nazivTipaAktivnosti, ta.getNazivTipaAktivnosti());
     }
-    
-     @Test
+
+    @Test
+    public void testToString() {
+        tipAktivnosti.setNazivTipaAktivnosti("Opustajuca");
+        String s = tipAktivnosti.toString();
+
+        assertTrue(s.contains("Opustajuca"));
+    }
+
+    @Test
     public void testSetTipAktivnostID() {
         long tipAktivnostID = 1;
         tipAktivnosti.setTipAktivnostiID(tipAktivnostID);
@@ -65,7 +72,7 @@ public class TipAktivnostiTest extends TestCase {
 
         assertEquals("ID tipa aktivnosti ne sme biti manji od 1.", e.getMessage());
     }
-    
+
     @Test
     public void testSetNazivTipaAktivnostiSveOk() {
         tipAktivnosti.setNazivTipaAktivnosti("Opustajuca");
