@@ -8,12 +8,13 @@ package rs.np.planovi.zajednicki.domain;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Predstavlja korisnika sistema koji se prijavljuje na sistem i pravi nedeljne
  * planove za definisane ciljeve. Korisnik ima definisan identifikator, ime,
  * prezime, korisnicko ime i sifru.
- * 
+ *
  * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
  *
  * @author Ana Adamovic
@@ -52,8 +53,9 @@ public class Korisnik extends AbstractDomainObject {
     }
 
     /**
-     * Parametarski konstruktor koji postavlja vrednosti za identifikator, ime, prezime, username i password korisnika.
-     * 
+     * Parametarski konstruktor koji postavlja vrednosti za identifikator, ime,
+     * prezime, username i password korisnika.
+     *
      * @param korisnikID nova vrednost za identifikator korisnika
      * @param ime nova vrednost za ime korisnika
      * @param prezime nova vrednost za prezime korisnika
@@ -80,9 +82,16 @@ public class Korisnik extends AbstractDomainObject {
     /**
      * Postavlja vrednost identifikatora korisnika.
      *
+     * Identifikator mora biti veci od nule.
+     *
      * @param korisnikID identifikator korisnika kao ceo broj
+     * @throws IllegalArgumentException ako se unese id koji je manji od 1
      */
     public void setKorisnikID(Long korisnikID) {
+        if (korisnikID <= 0) {
+            throw new IllegalArgumentException("ID korisnika ne sme biti nula ili manji");
+        }
+
         this.korisnikID = korisnikID;
     }
 
@@ -98,9 +107,21 @@ public class Korisnik extends AbstractDomainObject {
     /**
      * Postavlja vrednost atributa username korisnika.
      *
+     * Username ne sme biti null niti prazan String.
+     *
      * @param username username korisnika kao String
+     * @throws NullPointerException ako se unese null vrednost za username
+     * @throws IllegalArgumentException ako se unese prazan String kao username
      */
     public void setUsername(String username) {
+        if (username == null) {
+            throw new NullPointerException("Username ne sme biti null.");
+        }
+
+        if (username.isEmpty()) {
+            throw new IllegalArgumentException("Username ne sme biti prazan String.");
+        }
+
         this.username = username;
     }
 
@@ -115,11 +136,20 @@ public class Korisnik extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa password korisnika.
+     * 
+     * Password ne sme biti null niti prazan String.
      *
      * @param password password korisnika kao String
+     * @throws NullPointerException ako se unese null vrednost za password
+     * @throws IllegalArgumentException ako se unese prazan String za password
      */
     public void setPassword(String password) {
-        this.password = password;
+        if(password==null)
+            throw new NullPointerException("Password ne sme biti null.");
+        if(password.isEmpty())
+            throw new IllegalArgumentException("Password ne sme biti prazan String.");
+        
+        this.password=password;
     }
 
     /**
@@ -133,10 +163,14 @@ public class Korisnik extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa ime korisnika.
+     * 
+     * Ime korisnika ne sme biti null.
      *
      * @param ime ime korisnika kao String
      */
     public void setIme(String ime) {
+        if(ime==null)
+            throw new NullPointerException("Ime korisnika ne sme biti null.");
         this.ime = ime;
     }
 
@@ -151,10 +185,14 @@ public class Korisnik extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa prezime korisnika.
+     * 
+     * Prezime korisnika ne sme biti null.
      *
      * @param prezime prezime korisnika kao String
      */
     public void setPrezime(String prezime) {
+        if(prezime==null)
+            throw new NullPointerException("Prezime korisnika ne sme biti null.");
         this.prezime = prezime;
     }
 
@@ -219,6 +257,30 @@ public class Korisnik extends AbstractDomainObject {
     @Override
     public String uslov() {
         return "";
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Korisnik other = (Korisnik) obj;
+        if (!Objects.equals(this.ime, other.ime)) {
+            return false;
+        }
+        return Objects.equals(this.prezime, other.prezime);
     }
 
 }
