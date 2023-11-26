@@ -125,10 +125,15 @@ public class Cilj extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost identifikatora cilja.
+     * 
+     * Identifikator mora biti veci od nule.
      *
      * @param ciljID identifikator cilja kao ceo broj
+     * @throws IllegalArgumentException ako je unet ID manji od 1
      */
     public void setCiljID(Long ciljID) {
+        if(ciljID<=0)
+            throw new IllegalArgumentException("ID ne sme biti nula ili manje.");
         this.ciljID = ciljID;
     }
 
@@ -143,10 +148,15 @@ public class Cilj extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa naziv.
+     * 
+     * Naziv cilja ne sme biti null.
      *
      * @param nazivCilja naziv cilja kao String
+     * @throws NullPointerException ako je uneti naziv cilja null
      */
     public void setNazivCilja(String nazivCilja) {
+        if(nazivCilja==null)
+            throw new NullPointerException("Naziv cilja ne sme biti null.");
         this.nazivCilja = nazivCilja;
     }
 
@@ -161,10 +171,15 @@ public class Cilj extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa opis.
+     * 
+     * Opis cilja ne sme biti null.
      *
      * @param opisCilja opis cilja kao String
+     * @throws NullPointerException ako je uneti opis cilja null
      */
     public void setOpisCilja(String opisCilja) {
+        if(opisCilja==null)
+            throw new NullPointerException("Opis cilja ne sme biti null.");
         this.opisCilja = opisCilja;
     }
 
@@ -179,10 +194,15 @@ public class Cilj extends AbstractDomainObject {
 
     /**
      * Postavlja vrednost atributa kategorija cilja.
+     * 
+     * Kategorija cilja ne sme biti null.
      *
      * @param kategorijaCilja kategorija cilja kao objekat klase KategorijaCilja
+     * @throws NullPointerException ako je uneta kategorija cilja null
      */
     public void setKategorijaCilja(KategorijaCilja kategorijaCilja) {
+        if(kategorijaCilja==null)
+            throw new NullPointerException("Kategorija cilja ne sme biti null.");
         this.kategorijaCilja = kategorijaCilja;
     }
 
