@@ -65,8 +65,10 @@ public class KorisnikTest extends TestCase {
         "-55"
     })
     public void testSetKorisnikIDNedozvoljeno(long id) {
-        assertThrows(IllegalArgumentException.class,
+        Exception e = assertThrows(IllegalArgumentException.class,
                 () -> korisnik.setKorisnikID(id));
+
+        assertEquals("ID korisnika ne sme biti nula ili manji", e.getMessage());
     }
 
     @Test
