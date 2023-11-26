@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Predstavlja dnevnu aktivnost koju korisnik definise za sastavljanje svojih planova.
- * Dnevna aktivnost ima definisan nedeljni plan kome pripada, redni broj, datum, beleske i aktivnost.
- * 
+ * Predstavlja dnevnu aktivnost koju korisnik definise za sastavljanje svojih
+ * planova. Dnevna aktivnost ima definisan nedeljni plan kome pripada, redni
+ * broj, datum, beleske i aktivnost.
+ *
  * Nasledjuje klasu AbstractDomainObject i implementira njene apstraktne metode.
  *
  * @author Ana Adamovic
@@ -21,34 +22,35 @@ import java.util.Date;
 public class DnevnaAktivnost extends AbstractDomainObject {
 
     /**
-     * Nedeljni plan kao primarni i spoljni kljuc povezan sa klasom NedeljniPlan.
+     * Nedeljni plan kao primarni i spoljni kljuc povezan sa klasom
+     * NedeljniPlan.
      */
     private NedeljniPlan nedeljniPlan;
-    
+
     /**
      * Redni broj dnevne aktivnosti kao ceo broj.
      */
     private int rb;
-    
+
     /**
      * Datum aktivnosti kao objekat klase Date.
      */
     private Date datumAktivnosti;
-    
+
     /**
      * Beleske dnevne aktivnosti kao String.
      */
     private String beleske;
-    
+
     /**
      * Aktivnosti kao spoljni kljuc povezan sa klasom Aktivnost.
      */
     private Aktivnost aktivnost;
 
-     /**
-     * Parametarski konstruktor koji postavlja vrednosti za nedeljni plan, redni broj, datum aktivnosti,
-     * beleske i aktivnost.
-     * 
+    /**
+     * Parametarski konstruktor koji postavlja vrednosti za nedeljni plan, redni
+     * broj, datum aktivnosti, beleske i aktivnost.
+     *
      * @param nedeljniPlan nova vrednost za nedeljni plan dnevne aktivnosti
      * @param rb nova vrednost za redni broj dnevne aktivnosti
      * @param datumAktivnosti nova vrednost za datum dnevne aktivnosti
@@ -161,9 +163,15 @@ public class DnevnaAktivnost extends AbstractDomainObject {
     /**
      * Postavlja vrednost rednog broja dnevne aktivnosti.
      *
+     * Redni broj mora biti veci od nule.
+     *
      * @param rb redni broj dnevne aktivnosti kao ceo broj
+     * @throws IllegalArgumentException
      */
     public void setRb(int rb) {
+        if (rb <= 0) {
+            throw new IllegalArgumentException("Redni broj mora biti veci od nule.");
+        }
         this.rb = rb;
     }
 
@@ -179,9 +187,15 @@ public class DnevnaAktivnost extends AbstractDomainObject {
     /**
      * Postavlja vrednost atributa datum dnevne aktivnosti.
      *
+     * Datum aktivnosti ne sme biti null.
+     *
      * @param datumAktivnosti datum dnevne aktivnosti kao objekat klase Date
+     * @throws NullPointerException ako je uneti datum aktivnosti null
      */
     public void setDatumAktivnosti(Date datumAktivnosti) {
+        if (datumAktivnosti == null) {
+            throw new NullPointerException("Datum aktivnosti ne sme biti null.");
+        }
         this.datumAktivnosti = datumAktivnosti;
     }
 
@@ -197,9 +211,15 @@ public class DnevnaAktivnost extends AbstractDomainObject {
     /**
      * Postavlja vrednost atributa beleske.
      *
+     * Beleske ne smeju biti null.
+     *
      * @param beleske beleske dnevne aktivnosti kao String
+     * @throws NullPointerException ako su unete beleske null
      */
     public void setBeleske(String beleske) {
+        if (beleske == null) {
+            throw new NullPointerException("Beleske ne smeju biti null.");
+        }
         this.beleske = beleske;
     }
 
@@ -215,9 +235,15 @@ public class DnevnaAktivnost extends AbstractDomainObject {
     /**
      * Postavlja vrednost atributa aktivnost.
      *
+     * Aktivnost ne sme biti null.
+     *
      * @param aktivnost aktivnost kao objekat klase Aktivnost
+     * @throws NullPointerException ako je uneta aktivnost null
      */
     public void setAktivnost(Aktivnost aktivnost) {
+        if (aktivnost == null) {
+            throw new NullPointerException("Aktivnost ne sme biti null.");
+        }
         this.aktivnost = aktivnost;
     }
 
@@ -233,9 +259,15 @@ public class DnevnaAktivnost extends AbstractDomainObject {
     /**
      * Postavlja vrednost atributa nedeljni plan.
      *
+     * Nedeljni plan ne sme biti null.
+     *
      * @param nedeljniPlan nedeljni plan kao objekat klase Nedeljni plan
+     * @throws NullPointerException ako je uneti nedeljni plan null
      */
     public void setNedeljniPlan(NedeljniPlan nedeljniPlan) {
+        if (nedeljniPlan == null) {
+            throw new NullPointerException("Nedeljni plan ne sme biti null.");
+        }
         this.nedeljniPlan = nedeljniPlan;
     }
 
