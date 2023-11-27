@@ -39,6 +39,15 @@ public class Cilj extends AbstractDomainObject {
      */
     private KategorijaCilja kategorijaCilja;
 
+    /**
+     * Parametarski konstruktor koji postavlja vrednosti za
+     * identifikator, naziv, opis i kategoriju cilja.
+     *
+     * @param ciljID nova vrednost za identifikator cilja
+     * @param nazivCilja nova vrednost za naziv cilja
+     * @param opisCilja nova vrednost za opis cilja
+     * @param kategorijaCilja nova vrednost za kategoriju cilja
+     */
     public Cilj(Long ciljID, String nazivCilja, String opisCilja, KategorijaCilja kategorijaCilja) {
         this.ciljID = ciljID;
         this.nazivCilja = nazivCilja;

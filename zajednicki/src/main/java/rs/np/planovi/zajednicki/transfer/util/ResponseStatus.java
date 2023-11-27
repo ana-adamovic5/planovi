@@ -12,7 +12,11 @@ package rs.np.planovi.zajednicki.transfer.util;
  */
 public enum ResponseStatus {
     /**
-     * Status odgovora.
+     * Status uspesan.
      */
-    Success, Error
+    Success,
+    /**
+     * Status neuspesan.
+     */
+    Error
 }

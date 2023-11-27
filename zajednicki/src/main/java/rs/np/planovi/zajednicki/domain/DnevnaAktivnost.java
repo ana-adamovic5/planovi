@@ -166,7 +166,7 @@ public class DnevnaAktivnost extends AbstractDomainObject {
      * Redni broj mora biti veci od nule.
      *
      * @param rb redni broj dnevne aktivnosti kao ceo broj
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException ako je uneti redni broj manji od 1
      */
     public void setRb(int rb) {
         if (rb <= 0) {

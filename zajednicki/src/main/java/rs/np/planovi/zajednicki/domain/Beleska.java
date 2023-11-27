@@ -44,6 +44,15 @@ public class Beleska extends AbstractDomainObject {
     public Beleska() {
     }
 
+    /**
+     * Parametarski konstruktor koji postavlja vrednosti za
+     * identifikator, naslov, sadrzaj i korisnika beleske.
+     *
+     * @param beleskaID nova vrednost za identifikator beleske
+     * @param naslov nova vrednost za naslov beleske
+     * @param sadrzaj nova vrednost za sadrzaj beleske
+     * @param korisnik nova vrednost za korisnika beleske
+     */
     public Beleska(Long beleskaID, String naslov, String sadrzaj, Korisnik korisnik) {
         this.beleskaID = beleskaID;
         this.naslov = naslov;

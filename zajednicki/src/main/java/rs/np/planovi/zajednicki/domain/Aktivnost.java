@@ -39,6 +39,15 @@ public class Aktivnost extends AbstractDomainObject {
      */
     private TipAktivnosti tipAktivnosti;
 
+    /**
+     * Parametarski konstruktor koji postavlja vrednosti za identifikator,naziv,
+     * opis i tip aktivnosti.
+     *
+     * @param aktivnostID nova vrednost za identifikator aktivnosti
+     * @param nazivAktivnosti nova vrednost za naziv aktivnosti
+     * @param opisAktivnosti nova vrednost za opis aktivnosti
+     * @param tipAktivnosti nova vrednost za tip aktivnosti
+     */
     public Aktivnost(Long aktivnostID, String nazivAktivnosti, String opisAktivnosti, TipAktivnosti tipAktivnosti) {
         this.aktivnostID = aktivnostID;
         this.nazivAktivnosti = nazivAktivnosti;

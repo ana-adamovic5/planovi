@@ -85,7 +85,7 @@ public class KategorijaCilja extends AbstractDomainObject {
      * Naziv kategorije cilja ne sme biti null.
      *
      * @param nazivKategorije naziv cilja kao String
-     * @throw NullPointerException ako se unese naziv kategorije cilja koji je
+     * @throws NullPointerException ako se unese naziv kategorije cilja koji je
      * null
      */
     public void setNazivKategorije(String nazivKategorije) {

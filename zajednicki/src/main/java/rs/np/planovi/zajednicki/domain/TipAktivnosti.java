@@ -146,7 +146,7 @@ public class TipAktivnosti extends AbstractDomainObject {
      * Naziv tipa aktivnosti ne sme biti null.
      *
      * @param nazivTipaAktivnosti naziv tipa aktivnosti kao String
-     * @throw NullPointerException ako se unese naziv tipa aktivnosti koji je
+     * @throws NullPointerException ako se unese naziv tipa aktivnosti koji je
      * null
      */
     public void setNazivTipaAktivnosti(String nazivTipaAktivnosti) {

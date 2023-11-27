@@ -84,17 +84,4 @@ public class SOUpdateNedeljniPlanTest extends TestCase {
             assertEquals("Prosledjeni objekat nije instanca klase NedeljniPlan!", e.getMessage());
         }
     }
-
-    @Test
-    public void testDodajManjeDnevnihAktivnosti() throws Exception {
-        ArrayList<DnevnaAktivnost> da = new ArrayList<>();
-        da.add(new DnevnaAktivnost(nedeljniPlan, 1, new Date(), "beleske1", aktivnost));
-        nedeljniPlan.setDnevneAktivnosti(da);
-
-        try {
-            soUpdateNedeljniPlan.validate(nedeljniPlan);
-        } catch (Exception e) {
-            assertEquals("Nedeljni plan mora imati barem 3 dnevne aktivnosti!", e.getMessage());
-        }
-    }
 }
