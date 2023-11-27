@@ -34,5 +34,17 @@
       "username": "ana",
       "password": "ana123"
     }
+  },
+  {
+    "beleskaID": 17,
+    "naslov": "Obaveze za decembar",
+    "sadrzaj": "Zubar, ispit, polaganje voznje",
+    "korisnik": {
+      "korisnikID": 1,
+      "ime": "Ana",
+      "prezime": "Adamovic",
+      "username": "ana",
+      "password": "ana123"
+    }
   }
 ]

@@ -1,0 +1,11 @@
+{
+  "naslov": "Obaveze za decembar",
+  "sadrzaj": "Zubar, ispit, polaganje voznje",
+  "korisnik": {
+    "korisnikID": 1,
+    "ime": "Marija",
+    "prezime": "Mikic",
+    "username": "maki",
+    "password": "maki123"
+  }
+}

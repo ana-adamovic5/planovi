@@ -25,5 +25,14 @@
       "kategorijaID": 2,
       "nazivKategorije": "Fitnes"
     }
+  },
+  {
+    "ciljID": 13,
+    "nazivCilja": "Bolja ishrana",
+    "opisCilja": "Vise povrca i voca",
+    "kategorijaCilja": {
+      "kategorijaID": 1,
+      "nazivKategorije": "Licni razvoj"
+    }
   }
 ]

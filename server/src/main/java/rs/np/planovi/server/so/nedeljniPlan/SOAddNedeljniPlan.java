@@ -23,6 +23,21 @@ import rs.np.planovi.server.so.AbstractSO;
  */
 public class SOAddNedeljniPlan extends AbstractSO {
 
+    /**
+     * Atribut kao pokazatelj uspesnosti operacije. Ako je uspesna ima vrednost
+     * true, u suprotnom false.
+     */
+    private boolean uspesno = false;
+
+    /**
+     * Metoda pokazuje da li operacija uspesna.
+     *
+     * @return true ako je uspesna operacija, ili false ukoliko nije
+     */
+    public boolean isUspesno() {
+        return uspesno;
+    }
+
     @Override
     protected void validate(AbstractDomainObject ado) throws Exception {
         if (!(ado instanceof NedeljniPlan)) {
@@ -61,7 +76,8 @@ public class SOAddNedeljniPlan extends AbstractSO {
             dnevnaAktivnost.setNedeljniPlan(np);
             DBBroker.getInstance().insert(dnevnaAktivnost);
         }
-
+        
+        uspesno=true;
     }
 
 }
