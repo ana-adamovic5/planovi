@@ -1,0 +1,29 @@
+[
+  {
+    "aktivnostID": 1,
+    "nazivAktivnosti": "Masaza",
+    "opisAktivnosti": "Sportska masaza.",
+    "tipAktivnosti": {
+      "tipAktivnostiID": 1,
+      "nazivTipaAktivnosti": "Lezerna"
+    }
+  },
+  {
+    "aktivnostID": 2,
+    "nazivAktivnosti": "Trening",
+    "opisAktivnosti": "Trening u obliznjoj teretani.",
+    "tipAktivnosti": {
+      "tipAktivnostiID": 2,
+      "nazivTipaAktivnosti": "Fizicka"
+    }
+  },
+  {
+    "aktivnostID": 3,
+    "nazivAktivnosti": "Slusanje seminara za licni raz",
+    "opisAktivnosti": "Slusanje i zapisivanje beleski",
+    "tipAktivnosti": {
+      "tipAktivnostiID": 3,
+      "nazivTipaAktivnosti": "Mentalna"
+    }
+  }
+]

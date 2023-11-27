@@ -28,7 +28,7 @@ public class SOGetAllTipAktivnosti extends AbstractSO {
     @Override
     protected void validate(AbstractDomainObject ado) throws Exception {
         if (!(ado instanceof TipAktivnosti)) {
-            throw new Exception("Prosledjeni objekat nije instanca klase Korisnik!");
+            throw new Exception("Prosledjeni objekat nije instanca klase TipAktivnosti!");
         }
     }
 

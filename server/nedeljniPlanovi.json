@@ -1,0 +1,44 @@
+[
+  {
+    "nedeljniPlanID": 1,
+    "datumOd": "Aug 21, 2023",
+    "datumDo": "Aug 27, 2023",
+    "cilj": {
+      "ciljID": 1,
+      "nazivCilja": "Licni razvoj",
+      "opisCilja": "Treninzi, knjige, edukacija",
+      "kategorijaCilja": {
+        "kategorijaID": 1,
+        "nazivKategorije": "Licni razvoj"
+      }
+    },
+    "korisnik": {
+      "korisnikID": 1,
+      "ime": "Ana",
+      "prezime": "Adamovic",
+      "username": "ana",
+      "password": "ana123"
+    }
+  },
+  {
+    "nedeljniPlanID": 3,
+    "datumOd": "Nov 20, 2023",
+    "datumDo": "Nov 26, 2023",
+    "cilj": {
+      "ciljID": 4,
+      "nazivCilja": "Poloziti softveree",
+      "opisCilja": "Mora da se ostvari u julu!",
+      "kategorijaCilja": {
+        "kategorijaID": 4,
+        "nazivKategorije": "Studije"
+      }
+    },
+    "korisnik": {
+      "korisnikID": 1,
+      "ime": "Ana",
+      "prezime": "Adamovic",
+      "username": "ana",
+      "password": "ana123"
+    }
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "ciljID": 1,
+    "nazivCilja": "Licni razvoj",
+    "opisCilja": "Treninzi, knjige, edukacija",
+    "kategorijaCilja": {
+      "kategorijaID": 1,
+      "nazivKategorije": "Licni razvoj"
+    }
+  },
+  {
+    "ciljID": 4,
+    "nazivCilja": "Poloziti softveree",
+    "opisCilja": "Mora da se ostvari u julu!",
+    "kategorijaCilja": {
+      "kategorijaID": 4,
+      "nazivKategorije": "Studije"
+    }
+  },
+  {
+    "ciljID": 5,
+    "nazivCilja": "Pilates treningzi",
+    "opisCilja": "Snimci sa YouTube-a (Move with Nicole)",
+    "kategorijaCilja": {
+      "kategorijaID": 2,
+      "nazivKategorije": "Fitnes"
+    }
+  }
+]

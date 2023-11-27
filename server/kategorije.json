@@ -1,0 +1,22 @@
+[
+  {
+    "kategorijaID": 1,
+    "nazivKategorije": "Licni razvoj"
+  },
+  {
+    "kategorijaID": 2,
+    "nazivKategorije": "Fitnes"
+  },
+  {
+    "kategorijaID": 3,
+    "nazivKategorije": "Ishrana"
+  },
+  {
+    "kategorijaID": 4,
+    "nazivKategorije": "Studije"
+  },
+  {
+    "kategorijaID": 5,
+    "nazivKategorije": "Posao"
+  }
+]

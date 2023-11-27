@@ -1,0 +1,38 @@
+[
+  {
+    "beleskaID": 6,
+    "naslov": "Nabavka",
+    "sadrzaj": "hleb, jaja, mleko",
+    "korisnik": {
+      "korisnikID": 1,
+      "ime": "Ana",
+      "prezime": "Adamovic",
+      "username": "ana",
+      "password": "ana123"
+    }
+  },
+  {
+    "beleskaID": 7,
+    "naslov": "Diplomski rad",
+    "sadrzaj": "prijava teme \nizrada rada \nodbrana rada \nizdavanje diplome ",
+    "korisnik": {
+      "korisnikID": 1,
+      "ime": "Ana",
+      "prezime": "Adamovic",
+      "username": "ana",
+      "password": "ana123"
+    }
+  },
+  {
+    "beleskaID": 8,
+    "naslov": "Napredno programiranje projekat",
+    "sadrzaj": "tema \n8 domenskih klasa \n10 sistemskih operacija \nverzioniranje, grane, git \nmaven \ntestiranje (JUnit) \ndokumentovanje (Javadoc) \njson",
+    "korisnik": {
+      "korisnikID": 1,
+      "ime": "Ana",
+      "prezime": "Adamovic",
+      "username": "ana",
+      "password": "ana123"
+    }
+  }
+]

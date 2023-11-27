@@ -1,0 +1,14 @@
+[
+  {
+    "tipAktivnostiID": 1,
+    "nazivTipaAktivnosti": "Lezerna"
+  },
+  {
+    "tipAktivnostiID": 2,
+    "nazivTipaAktivnosti": "Fizicka"
+  },
+  {
+    "tipAktivnostiID": 3,
+    "nazivTipaAktivnosti": "Mentalna"
+  }
+]

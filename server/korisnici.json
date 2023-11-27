@@ -1,0 +1,16 @@
+[
+  {
+    "korisnikID": 1,
+    "ime": "Ana",
+    "prezime": "Adamovic",
+    "username": "ana",
+    "password": "ana123"
+  },
+  {
+    "korisnikID": 2,
+    "ime": "Jovan",
+    "prezime": "Vitosevic",
+    "username": "jovan",
+    "password": "jovan123"
+  }
+]
