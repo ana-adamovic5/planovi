@@ -1,0 +1,12 @@
+{
+  "beleskaID": 6,
+  "naslov": "Naslov",
+  "sadrzaj": "hleb, jaja, mleko",
+  "korisnik": {
+    "korisnikID": 1,
+    "ime": "Marija",
+    "prezime": "Mikic",
+    "username": "maki",
+    "password": "maki123"
+  }
+}

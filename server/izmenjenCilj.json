@@ -1,0 +1,9 @@
+{
+  "ciljID": 1,
+  "nazivCilja": "Razvoj",
+  "opisCilja": "Edukacija",
+  "kategorijaCilja": {
+    "kategorijaID": 1,
+    "nazivKategorije": "Licni razvoj"
+  }
+}
