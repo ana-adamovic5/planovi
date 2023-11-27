@@ -11,8 +11,6 @@ import java.io.IOException;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 import junit.framework.TestCase;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import rs.np.planovi.zajednicki.domain.AbstractDomainObject;
 import rs.np.planovi.zajednicki.domain.Aktivnost;
@@ -23,51 +21,38 @@ import rs.np.planovi.zajednicki.domain.Korisnik;
  *
  * @author Ana Adamovic
  */
-public class SOUpdateBeleskaTest extends TestCase {
+public class SODeleteBeleskaTest extends TestCase {
     
-    SOUpdateBeleska soUpdateBeleska;
+    SODeleteBeleska soDeleteBeleska;
     Beleska beleska;
     Korisnik korisnik;
     
-    @BeforeEach
     @Override
     protected void setUp() throws Exception {
-        soUpdateBeleska = new SOUpdateBeleska();
-        korisnik = new Korisnik((long) 1, "Marija", "Mikic", "maki", "maki123");
-        beleska = new Beleska((long)6, "Naslov", "hleb, jaja, mleko", korisnik);
+        soDeleteBeleska=new SODeleteBeleska();
+        korisnik=new Korisnik((long)1, "Ana", "Adamovic", "ana", "ana123");
+        beleska=new Beleska((long)6, "Nabavka", "hleb, jaja, mleko", korisnik);
     }
     
-    @AfterEach
     @Override
     protected void tearDown() throws Exception {
-        soUpdateBeleska=null;
-        beleska=null;
+        soDeleteBeleska=null;
         korisnik=null;
+        beleska=null;
     }
 
     @Test
     public void testExecute() throws Exception {
 
-        soUpdateBeleska.execute(beleska);
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        String jsonString = gson.toJson(beleska);
-
-        try ( FileWriter writer = new FileWriter("izmenjenaBeleska.json")) {
-            writer.write(jsonString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        assertTrue(soUpdateBeleska.isUspesno());
+        soDeleteBeleska.execute(beleska);
+        assertTrue(soDeleteBeleska.isUspesno());
     }
-    
+
     @Test
     public void testNevalidanObjekat() throws Exception {
         try {
             AbstractDomainObject nevalidan = new Aktivnost();
-            soUpdateBeleska.validate(nevalidan);
+            soDeleteBeleska.validate(nevalidan);
         } catch (Exception e) {
             assertEquals("Prosledjeni objekat nije instanca klase Beleska!", e.getMessage());
         }

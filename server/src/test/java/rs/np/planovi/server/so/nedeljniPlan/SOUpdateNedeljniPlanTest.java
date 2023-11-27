@@ -27,7 +27,7 @@ import rs.np.planovi.zajednicki.domain.TipAktivnosti;
 
 /**
  *
- * @author adamo
+ * @author Ana Adamovic
  */
 public class SOUpdateNedeljniPlanTest extends TestCase {
 

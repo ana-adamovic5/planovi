@@ -4,14 +4,12 @@
  */
 package rs.np.planovi.server.so.cilj;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import java.io.FileWriter;
-import java.io.IOException;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import rs.np.planovi.server.so.cilj.SODeleteCilj;
 import rs.np.planovi.zajednicki.domain.AbstractDomainObject;
 import rs.np.planovi.zajednicki.domain.Aktivnost;
 import rs.np.planovi.zajednicki.domain.Cilj;
@@ -21,49 +19,32 @@ import rs.np.planovi.zajednicki.domain.KategorijaCilja;
  *
  * @author Ana Adamovic
  */
-public class SOUpdateCiljTest extends TestCase {
-
-    SOUpdateCilj soUpdateCilj;
+public class SODeleteCiljTest extends TestCase {
+    
+    SODeleteCilj soDeleteCilj;
     Cilj cilj;
     KategorijaCilja kategorija;
-
+    
+    @BeforeEach
     @Override
     protected void setUp() throws Exception {
-        soUpdateCilj = new SOUpdateCilj();
-        kategorija = new KategorijaCilja((long) 1, "Licni razvoj");
-        cilj = new Cilj((long) 1, "Razvoj", "Edukacija", kategorija);
+        soDeleteCilj=new SODeleteCilj();
+        kategorija=new KategorijaCilja((long)1, "Licni razvoj");
+        cilj=new Cilj((long)1, "Licni razvoj", "Treninzi, knjige, edukacija", kategorija);
     }
-
+    
     @Override
     protected void tearDown() throws Exception {
-        soUpdateCilj = null;
-        kategorija = null;
-        cilj = null;
-    }
-
-    @Test
-    public void testExecute() throws Exception {
-
-        soUpdateCilj.execute(cilj);
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        String jsonString = gson.toJson(cilj);
-
-        try ( FileWriter writer = new FileWriter("izmenjenCilj.json")) {
-            writer.write(jsonString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        assertTrue(soUpdateCilj.isUspesno());
+        soDeleteCilj=null;
+        cilj=null;
+        kategorija=null;
     }
 
     @Test
     public void testNevalidanObjekat() throws Exception {
         try {
             AbstractDomainObject nevalidan = new Aktivnost();
-            soUpdateCilj.validate(nevalidan);
+            soDeleteCilj.validate(nevalidan);
         } catch (Exception e) {
             assertEquals("Prosledjeni objekat nije instanca klase Cilj!", e.getMessage());
         }
