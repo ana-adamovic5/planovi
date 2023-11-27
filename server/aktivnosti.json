@@ -5,7 +5,7 @@
     "opisAktivnosti": "Sportska masaza.",
     "tipAktivnosti": {
       "tipAktivnostiID": 1,
-      "nazivTipaAktivnosti": "Lezerna"
+      "nazivTipaAktivnosti": "Opustajuca"
     }
   },
   {
@@ -19,7 +19,7 @@
   },
   {
     "aktivnostID": 3,
-    "nazivAktivnosti": "Slusanje seminara za licni raz",
+    "nazivAktivnosti": "Slusanje seminara",
     "opisAktivnosti": "Slusanje i zapisivanje beleski",
     "tipAktivnosti": {
       "tipAktivnostiID": 3,

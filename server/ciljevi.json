@@ -10,7 +10,7 @@
   },
   {
     "ciljID": 4,
-    "nazivCilja": "Poloziti softveree",
+    "nazivCilja": "Poloziti softvere",
     "opisCilja": "Mora da se ostvari u julu!",
     "kategorijaCilja": {
       "kategorijaID": 4,
@@ -19,7 +19,7 @@
   },
   {
     "ciljID": 5,
-    "nazivCilja": "Pilates treningzi",
+    "nazivCilja": "Pilates treninzi",
     "opisCilja": "Snimci sa YouTube-a (Move with Nicole)",
     "kategorijaCilja": {
       "kategorijaID": 2,
@@ -27,7 +27,7 @@
     }
   },
   {
-    "ciljID": 31,
+    "ciljID": 33,
     "nazivCilja": "Bolja ishrana",
     "opisCilja": "Vise povrca i voca",
     "kategorijaCilja": {
